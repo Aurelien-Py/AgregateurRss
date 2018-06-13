@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FeedComponent } from '../components/feed/feed';
@@ -41,7 +40,6 @@ import { FluxProvider } from '../providers/flux/flux';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FluxProvider,
-    HTTP
   ]
 })
 export class AppModule {}
