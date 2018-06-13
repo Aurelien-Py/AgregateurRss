@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
 
 /**
  * Generated class for the FeedComponent component.
@@ -12,10 +13,10 @@ import { Component } from '@angular/core';
 })
 export class FeedComponent {
 
-  datePub: Date;
-  category: string;
-  title: string;
-  flux: string;
+  @Input() datePub: Date;
+  @Input() category: string;
+  @Input() title: string;
+  @Input() flux: string;
 
   constructor() {
     console.log('Hello FeedComponent Component');
