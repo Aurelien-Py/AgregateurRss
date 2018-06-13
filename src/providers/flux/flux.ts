@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Flux } from '../../models/Flux/flux';
 
 /*
   Generated class for the FluxProvider provider.
@@ -11,17 +12,7 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class FluxProvider {
 
-  public id: number;
-  public name: string;
-  public link: string;
-  public dateCreation: Date;
-  static latestId: number = 1;
-
-  static incrementId() {
-    if (!this.latestId) this.latestId = 1
-    else this.latestId++
-    return this.latestId
-  }
+  public listFlux = Array<Flux>(0);
 
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello FluxProvider Provider');
@@ -43,11 +34,7 @@ export class FluxProvider {
 
   }
 
-  get(){
-
-  }
-
-  set(){
+  getById(){
 
   }
 

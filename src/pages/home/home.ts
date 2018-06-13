@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { FluxProvider } from '../../providers/flux/flux';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -11,7 +12,7 @@ export class HomePage implements AfterViewInit, OnInit {
 
   
 
-  constructor(public navCtrl: NavController, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider) {
 
   }
 
