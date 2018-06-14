@@ -21,4 +21,38 @@
 
 <ion-content padding>
 
+  <ion-list>
+
+  <div padding>
+    <ion-item>
+      <ion-label floating>Nom</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </div>
+
+  <div padding>
+    <ion-item>
+      <ion-input type="text" placeholder="http://"></ion-input>
+    </ion-item>
+  </div>
+
+  <div padding>
+  <ion-item>
+      <ion-label>Catégorie</ion-label>
+      <ion-select [(ngModel)]="categorie">
+        <ion-option value="info">Informatique</ion-option>
+        <ion-option value="sport">Sport</ion-option>
+        <ion-option value="music">Musique</ion-option>
+        <ion-option value="cook">Cuisine</ion-option>
+        <ion-option value="wellness">Bien-être</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div padding>
+    <button ion-button block>Créer</button>
+  </div>
+
+</ion-list>
+  
 </ion-content>
