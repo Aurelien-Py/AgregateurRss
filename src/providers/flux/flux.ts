@@ -1,7 +1,7 @@
+import { Flux } from './../../models/Flux/flux';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Flux } from '../../models/Flux/flux';
 
 /*
   Generated class for the FluxProvider provider.
@@ -18,24 +18,55 @@ export class FluxProvider {
     console.log('Hello FluxProvider Provider');
   }
 
-  add(){
-
+  add(f: Flux){
+    this.listFlux.push(f);
+    this.save();
   }
 
-  remove(){
-
+  remove(id: number){
+    for(let i = 0; i < this.listFlux.length; i++){
+      if(this.listFlux[i].id === id){
+        this.listFlux.splice(i,1);
+        this.save();
+        break;
+      }
+    }
   }
 
   save(){
+    this.storage.set('Flux', JSON.stringify(this.listFlux));
+  }
 
+  clean(){
+    this.storage.clear();
   }
 
   getAll(){
-
+    console.log('ici');
+    return new Promise<Array<Flux>>((resolve, reject) => {
+      this.storage.get('Flux').then(
+        data => {
+          console.log(data);
+          resolve(JSON.parse(data));
+        },
+        error => {
+          reject(error);
+        }
+      )
+    });
   }
 
-  getById(){
+  getById(id: number){
+    let res: Flux = null;
 
+    for(let i = 0; i < this.listFlux.length; i++){
+      if(this.listFlux[i].id === id){
+        res = this.listFlux[i];
+        break;
+      }
+    }
+
+    return res;
   }
 
 }

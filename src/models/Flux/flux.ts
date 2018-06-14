@@ -1,9 +1,9 @@
 export class Flux{
     public id: number;
-    public name: string;
+    public title: string;
     public link: string;
     public dateCreation: Date;
-    static latestId: number = 1;
+    static latestId: number = 0;
 
     static incrementId() {
         if (!this.latestId) this.latestId = 1
@@ -11,11 +11,11 @@ export class Flux{
         return this.latestId
     }
 
-    constructor(name: string, link: string, dateCreation: Date) {
+    constructor(title: string, link: string) {
         console.log('Flux');
         this.id = Flux.incrementId();
-        this.name = name;
+        this.title = title;
         this.link = link;
-        this.dateCreation = dateCreation;
+        this.dateCreation = new Date();
     }
 }

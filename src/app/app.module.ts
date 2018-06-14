@@ -15,6 +15,7 @@ import { FeedPage } from '../pages/feed/feed';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FluxProvider } from '../providers/flux/flux';
+import { BookmarkProvider } from '../providers/bookmark/bookmark';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FluxProvider } from '../providers/flux/flux';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FluxProvider,
+    BookmarkProvider,
   ]
 })
 export class AppModule {}
