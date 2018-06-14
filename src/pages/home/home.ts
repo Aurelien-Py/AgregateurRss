@@ -5,6 +5,7 @@ import { FluxProvider } from '../../providers/flux/flux';
 import 'rxjs/add/operator/map';
 import { Feed } from '../../models/Feed/feed';
 import { Flux } from '../../models/Flux/flux';
+import { FeedPage } from '../feed/feed';
 
 @Component({
   selector: 'page-home',
@@ -17,6 +18,10 @@ export class HomePage implements AfterViewInit, OnInit {
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider) {
     this.feeds = Array<Feed>(0);
     console.log(this.feeds);
+  }
+
+  goToFeedPage(feed: Feed){
+    this.navCtrl.push(FeedPage, {'feed' : feed});
   }
 
   ngAfterViewInit(){
