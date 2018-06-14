@@ -3,8 +3,8 @@ export class Feed{
     public title: string;
     public link: string;
     public description: string;
-    public dateCreation: Date;
-    static latestId: number = 1;
+    public pubDate: Date;
+    static latestId: number = 0;
 
     static incrementId() {
         if (!this.latestId) this.latestId = 1
@@ -12,12 +12,12 @@ export class Feed{
         return this.latestId
     }
 
-    constructor(title: string, link: string, description: string, dateCreation: Date) {
+    constructor(title: string, link: string, description: string, pubDate: Date) {
         console.log('Feed');
         this.id = Feed.incrementId();
-        this.title = name;
+        this.title = title;
         this.link = link;
         this.description = description;
-        this.dateCreation = dateCreation;
+        this.pubDate = pubDate;
     }
 }
