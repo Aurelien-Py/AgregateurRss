@@ -22,8 +22,8 @@ export class FeedComponent {
     console.log('Hello FeedComponent Component');
     this.datePub = new Date();
     this.category = "#FF0000";
-    this.title = "test";
-    this.flux = "Test";
+    this.title = "Titre de l'article très très très très très très très long de chez long de chez long de très très très très très très très long de chez long très très très très très très très long de chez long";
+    this.flux = "Site origine du flux";
   }
 
 }
