@@ -10,6 +10,7 @@ import { CategoryComponent } from './../components/category/category';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { FeedPage } from '../pages/feed/feed';
 
 import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
 
@@ -26,6 +27,7 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
     FeedComponent,
     CategoryComponent,
     StripHtmlTagsPipe,
+    FeedPage,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
     ListPage,
     FeedComponent,
     CategoryComponent,
+    FeedPage,
   ],
   providers: [
     StatusBar,
