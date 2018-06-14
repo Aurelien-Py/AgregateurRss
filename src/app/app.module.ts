@@ -11,6 +11,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FluxProvider } from '../providers/flux/flux';
@@ -23,6 +25,7 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
     ListPage,
     FeedComponent,
     CategoryComponent,
+    StripHtmlTagsPipe,
   ],
   imports: [
     BrowserModule,
