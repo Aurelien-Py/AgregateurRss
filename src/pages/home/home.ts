@@ -22,7 +22,6 @@ export class HomePage implements AfterViewInit, OnInit {
   ngAfterViewInit(){
     this.flux.add(new Flux('Journal du Hacker','https://www.journalduhacker.net/rss'));
     this.flux.add(new Flux('Korben','https://korben.info/feed'));
-    this.flux.add(new Flux('test','https://www.journalduhacker.net/rss'));
     this.doRefresh();
   }
 
@@ -42,6 +41,19 @@ export class HomePage implements AfterViewInit, OnInit {
               }
             }
             this.feeds = this.feeds.concat(res);
+
+            this.feeds.sort((a,b) => {
+              let res = 0;
+              let da = new Date(a.pubDate);
+              let db = new Date(b.pubDate);
+              if(da > db){
+                res = 1;
+              }else if(da < db){
+                res = -1;
+              }
+
+              return res;
+            })
             
             console.log(this.feeds);
     
