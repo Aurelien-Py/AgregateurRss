@@ -13,17 +13,19 @@
 </ion-header>
 
 
-<ion-content padding>
-
-    <div class="box-shadow">
-        <div class="title" style="text-align: center; font-size: 25px;"> {{feed.title}} </div> 
-    </div>
+<ion-content>
+  <img style="width:100%;" src="assets/imgs/Zenimage4.jpg">
+  <p>
+  <div class="title" style="text-align: center; font-size: 25px;"> {{feed.title}} </div> 
+    
     <p>
-    <div text-center>IMAGE</div>
+    
     <div text-justify>Description: {{ feed.descritption }}</div>
     <p>
-    <div>{{ feed.link }}</div>
-    <p>
     <div style="color: rgb(201, 183, 183)">{{ feed.pubDate }}</div>
+    
+    <button ion-button (click)="openlink(feed)"  block>  
+      link
+    </button>
 
 </ion-content>
