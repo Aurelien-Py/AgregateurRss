@@ -16,6 +16,7 @@ export class HomePage implements AfterViewInit, OnInit {
 
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider) {
     this.feeds = Array<Feed>(0);
+    console.log(this.feeds);
   }
 
   ngAfterViewInit(){
@@ -33,8 +34,16 @@ export class HomePage implements AfterViewInit, OnInit {
           this.http.get('https://rss2json.com/api.json?rss_url=' + element.link)
           .subscribe((result) => {
               
-            console.log(result);
-    
+            let res = Array<Feed>(0);
+            if(result['items']){
+              for( let i = 0; i < result['items'].length; i++){
+                let temp = result['items'][i];
+                res.push(new Feed(temp['title'],temp['link'],temp['description'],temp['pubDate'], element));
+              }
+            }
+            this.feeds = this.feeds.concat(res);
+            
+            console.log(this.feeds);
     
           }, (error) => {
               console.log(error);

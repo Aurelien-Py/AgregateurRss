@@ -8,17 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <feed></feed>
+    <ion-list *ngFor='let feed of feeds'>
+        <feed [feed]='feed'></feed>
     </ion-list>
-    <ion-list>
-      <feed></feed>
-  </ion-list>
-  <ion-list>
-    <feed></feed>
-</ion-list>
-<ion-list>
-  <feed></feed>
-</ion-list>
-
 </ion-content>
