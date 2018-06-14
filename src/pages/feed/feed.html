@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>feed</ion-title>
+    <ion-title>{{ feed.flux.title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,15 @@
 
 <ion-content padding>
 
-    <p>{{ feed.title }}</p>
+    <div class="box-shadow">
+        <div class="title" style="text-align: center; font-size: 25px;"> {{feed.title}} </div> 
+    </div>
+    <p>
+    <div text-center>IMAGE</div>
+    <div text-justify>Description: {{ feed.descritption }}</div>
+    <p>
+    <div>{{ feed.link }}</div>
+    <p>
+    <div style="color: grey">{{ feed.pubDate }}</div>
 
 </ion-content>
