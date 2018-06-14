@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FeedPage } from '../pages/feed/feed';
 
+
 import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
 
 import { StatusBar } from '@ionic-native/status-bar';
