@@ -1,3 +1,5 @@
+import { PipesModule } from './../pipes/pipes.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,8 +14,6 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FeedPage } from '../pages/feed/feed';
 
-import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FluxProvider } from '../providers/flux/flux';
@@ -26,7 +26,6 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
     ListPage,
     FeedComponent,
     CategoryComponent,
-    StripHtmlTagsPipe,
     FeedPage,
   ],
   imports: [
@@ -34,6 +33,7 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     IonicStorageModule.forRoot(),
+    PipesModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
