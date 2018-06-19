@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, Modal } from 'ionic-angular';
 import { FluxProvider } from '../../providers/flux/flux';
 import 'rxjs/add/operator/map';
 import { Feed } from '../../models/Feed/feed';
 import { Flux } from '../../models/Flux/flux';
 import { FeedPage } from '../feed/feed';
+import { Quote } from '@angular/compiler';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage implements AfterViewInit, OnInit {
 
   feeds: Array<Feed>;
 
-  constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider) {
+  constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider, private modal: ModalController) {
     this.feeds = Array<Feed>(0);
     console.log(this.feeds);
   }
@@ -81,5 +82,11 @@ export class HomePage implements AfterViewInit, OnInit {
   ngOnInit(){
 
   }
+
+  openModal(){
+    const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
+    modalAddFlux.present();
+  }
+
 
 }

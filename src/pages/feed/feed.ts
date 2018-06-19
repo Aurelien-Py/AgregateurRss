@@ -24,8 +24,11 @@ export class FeedPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedPage');
-  }
+  } 
 
+  openlink(feed: Feed){
+    window.open(feed.link);
+  }
   
 
 }
