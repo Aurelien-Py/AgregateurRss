@@ -26,20 +26,20 @@
   <div padding>
     <ion-item>
       <ion-label floating>Nom</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="nameFlux" type="text"></ion-input>
     </ion-item>
   </div>
 
   <div padding>
     <ion-item>
-      <ion-input type="text" placeholder="http://"></ion-input>
+      <ion-input [(ngModel)]="addressFlux" type="text" placeholder="http://"></ion-input>
     </ion-item>
   </div>
 
   <div padding>
   <ion-item>
       <ion-label>Catégorie</ion-label>
-      <ion-select [(ngModel)]="categorie">
+      <ion-select [(ngModel)]="categoryFlux">
         <ion-option value="info">Informatique</ion-option>
         <ion-option value="sport">Sport</ion-option>
         <ion-option value="music">Musique</ion-option>
@@ -50,7 +50,7 @@
   </div>
 
   <div padding>
-    <button ion-button block>Créer</button>
+    <button ion-button block (click)="addFlux()">Créer</button>
   </div>
 
 </ion-list>
