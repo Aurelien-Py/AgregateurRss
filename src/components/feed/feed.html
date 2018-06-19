@@ -1,8 +1,8 @@
 <!-- Generated template for the FeedComponent component -->
-<div class="box-shadow">
+<div class="box-shadow" [ngStyle]="{'border-color':'#' + feed.flux.category.color }">
 
-    <div class="title" style="text-align: center;"> {{feed.title}} </div>
+    <div class="title" style="text-align: center;"> {{ feed.title }} </div>
     <div class="information-banner">
-        <div style="text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{feed.flux.title}} </div>
+        <div style="text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{ feed.flux.title }} </div>
     </div>
 </div>

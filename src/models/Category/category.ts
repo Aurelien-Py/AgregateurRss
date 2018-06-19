@@ -1,9 +1,7 @@
-import { Category } from './../Category/category';
-export class Flux{
+export class Category{
     public id: number;
     public title: string;
-    public link: string;
-    public category: Category;
+    public color: string;
     public dateCreation: Date;
     static latestId: number = 0;
 
@@ -13,12 +11,11 @@ export class Flux{
         return this.latestId
     }
 
-    constructor(title: string, link: string, category: Category) {
-        console.log('Flux');
-        this.id = Flux.incrementId();
+    constructor(title: string, color: string) {
+        console.log('Category');
+        this.id = Category.incrementId();
         this.title = title;
-        this.link = link;
-        this.category = category;
+        this.color = color;
         this.dateCreation = new Date();
     }
 }

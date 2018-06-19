@@ -20,6 +20,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FluxProvider } from '../providers/flux/flux';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
+import { CategoryProvider } from '../providers/category/category';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FluxProvider,
     BookmarkProvider,
+    CategoryProvider,
   ]
 })
 export class AppModule {}

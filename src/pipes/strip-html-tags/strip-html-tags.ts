@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
  */
 @Pipe({
-  name: 'stripHtmlTags',
+  name: 'StripHtmlTagsPipe',
 })
 export class StripHtmlTagsPipe implements PipeTransform {
   private tagBody: string = '(?:[^"\'>]|"[^"]*"|\'[^\']*\')*';
