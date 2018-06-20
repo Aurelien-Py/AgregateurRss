@@ -16,6 +16,15 @@ export class CategoryProvider {
 
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello CategoryProvider Provider');
+    this.storage.get('Category').then(
+      data => {
+        console.log(data);
+        this.listCategory = JSON.parse(data);
+      },
+      error => {
+        console.log('Erreur Category Constructor');
+      }
+    );
   }
 
   add(c: Category){
