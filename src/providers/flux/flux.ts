@@ -16,6 +16,15 @@ export class FluxProvider {
 
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello FluxProvider Provider');
+    this.storage.get('Flux').then(
+      data => {
+        console.log(data);
+        this.listFlux = JSON.parse(data);
+      },
+      error => {
+        console.log('Erreur Flux Constructor');
+      }
+    );
   }
 
   add(f: Flux){
