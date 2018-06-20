@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Flux } from '../../models/Flux/flux';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FluxProvider } from '../../providers/flux/flux';
+import { Category } from '../../models/Category/category';
 
 /**
  * Generated class for the ModalAddingFluxPage page.
@@ -20,7 +21,7 @@ export class ModalAddingFluxPage {
 
   nameFlux: string;
   addressFlux: string;
-  //categoryFlux: Category;
+  categoryFlux: Category;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public flux: FluxProvider,public viewC: ViewController) {
   }
@@ -34,7 +35,7 @@ export class ModalAddingFluxPage {
   }
   
   addFlux(){
-    //this.flux.add(new Flux(this.nameFlux,this.addressFlux);
+    this.flux.add(new Flux(this.nameFlux,this.addressFlux, this.categoryFlux));
   }
 
 }

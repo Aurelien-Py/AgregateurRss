@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ModalAddingCategoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ajouter une catégorie</ion-title>
+
+    <ion-buttons end>
+        <button ion-button icon-only color="light" clear (click)="closeModal()">
+            <ion-icon ios="ios-close" md="md-close" ></ion-icon>
+          </button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>Nom</ion-label>
+            <ion-input [(ngModel)]="nameFlux" type="text"></ion-input>
+          </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="colorCategory" type="color"></ion-input>
+          </ion-item>
+        </div>
+
+       
+        <div padding>
+            <button ion-button block (click)="createCategory()">Créer</button>
+          </div>
+</ion-list>      
+
+</ion-content>

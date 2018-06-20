@@ -13,6 +13,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FeedPage } from '../pages/feed/feed';
+import {CategoriesPage} from '../pages/categories/categories';
 
 import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
 
@@ -30,6 +31,7 @@ import { CategoryProvider } from '../providers/category/category';
     FeedComponent,
     CategoryComponent,
     FeedPage,
+    CategoriesPage,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { CategoryProvider } from '../providers/category/category';
     FeedComponent,
     CategoryComponent,
     FeedPage,
+    CategoriesPage,
   ],
   providers: [
     StatusBar,
