@@ -6,53 +6,49 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Ajouter un flux</ion-title>
+    <ion-navbar>
+        <ion-title>Ajouter un flux</ion-title>
 
-    <ion-buttons end>
-        <button ion-button icon-only color="light" clear (click)="closeModal()">
+        <ion-buttons end>
+            <button ion-button icon-only color="light" clear (click)="closeModal()">
             <ion-icon ios="ios-close" md="md-close" ></ion-icon>
           </button>
         </ion-buttons>
-  </ion-navbar>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
-  <ion-list>
+    <ion-list>
 
-  <div padding>
-    <ion-item>
-      <ion-label floating>Nom</ion-label>
-      <ion-input [(ngModel)]="nameFlux" type="text"></ion-input>
-    </ion-item>
-  </div>
+        <div padding>
+            <ion-item>
+                <ion-label floating>Nom</ion-label>
+                <ion-input [(ngModel)]="nameFlux" type="text"></ion-input>
+            </ion-item>
+        </div>
 
-  <div padding>
-    <ion-item>
-      <ion-input [(ngModel)]="addressFlux" type="text" placeholder="http://"></ion-input>
-    </ion-item>
-  </div>
+        <div padding>
+            <ion-item>
+                <ion-input [(ngModel)]="addressFlux" type="text" placeholder="http://"></ion-input>
+            </ion-item>
+        </div>
 
-  <div padding>
-  <ion-item>
-      <ion-label>Catégorie</ion-label>
-      <ion-select [(ngModel)]="categoryFlux">
-        <ion-option value="info">Informatique</ion-option>
-        <ion-option value="sport">Sport</ion-option>
-        <ion-option value="music">Musique</ion-option>
-        <ion-option value="cook">Cuisine</ion-option>
-        <ion-option value="wellness">Bien-être</ion-option>
-      </ion-select>
-    </ion-item>
-  </div>
+        <div padding>
+            <ion-item>
+                <ion-label>Catégorie</ion-label>
+                <ion-select [(ngModel)]="categoryFlux">
+                    <ion-option *ngFor='let category of listCategories' [value]="category">{{category.title}}</ion-option>
+                </ion-select>
+            </ion-item>
+        </div>
 
-  <div padding>
-    <button ion-button block (click)="addFlux()">Créer</button>
-  </div>
+        <div padding>
+            <button ion-button block (click)="addFlux()">Créer</button>
+        </div>
 
-</ion-list>
-  
+    </ion-list>
+
 </ion-content>
