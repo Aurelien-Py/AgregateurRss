@@ -1,3 +1,4 @@
+import { Feed } from './../../models/Feed/feed';
 import { Bookmark } from './../../models/Bookmark/bookmark';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -51,7 +52,6 @@ export class BookmarkProvider {
   }
 
   getAll(){
-    console.log('ici');
     return new Promise<Array<Bookmark>>((resolve, reject) => {
       this.storage.get('Bookmark').then(
         data => {
@@ -70,6 +70,19 @@ export class BookmarkProvider {
 
     for(let i = 0; i < this.listBookmark.length; i++){
       if(this.listBookmark[i].id === id){
+        res = this.listBookmark[i];
+        break;
+      }
+    }
+
+    return res;
+  }
+
+  getByFeed(f: Feed){
+    let res: Bookmark = null;
+
+    for(let i = 0; i < this.listBookmark.length; i++){
+      if(this.listBookmark[i].feed === f){
         res = this.listBookmark[i];
         break;
       }

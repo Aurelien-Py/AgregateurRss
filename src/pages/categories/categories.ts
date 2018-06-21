@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { CategoryProvider } from './../../providers/category/category';
 import { IonicPage, NavController, NavParams, ModalController, Modal  } from 'ionic-angular';
+import { Category } from '../../models/Category/category';
 
 
 /**
@@ -16,7 +18,14 @@ import { IonicPage, NavController, NavParams, ModalController, Modal  } from 'io
 })
 export class CategoriesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modal: ModalController) {
+  categories: Array<Category>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modal: ModalController,  public categoryP: CategoryProvider) {
+    this.categories = Array<Category>(0);
+    console.log(this.categories);
+    this.categoryP.getAll().then(data => {
+      this.categories = data;
+    })
   }
 
   ionViewDidLoad() {
@@ -27,4 +36,9 @@ export class CategoriesPage {
     const modalAddFlux : Modal = this.modal.create('ModalAddingCategoryPage');
     modalAddFlux.present();
   }
+
+  goToCategoryPage(category: Category){
+    this.navCtrl.push(CategoriesPage, {'category' : category});
+  }
+
 }

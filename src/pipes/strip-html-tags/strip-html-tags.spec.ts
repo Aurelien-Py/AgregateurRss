@@ -8,4 +8,12 @@ describe('Pipe: StripHtmlTags', () => {
         let pipe = new StripHtmlTagsPipe();
         expect(pipe).toBeTruthy();
     });
+
+    it('Remove html tags', () => {
+        let pipe = new StripHtmlTagsPipe();
+        let html = '<p>Bonjour</p>';
+        let res = pipe.transform(html);
+
+        expect(res).toEqual('Bonjour');
+    });
 });

@@ -34,5 +34,6 @@ export class ModalAddingCategoryPage {
 
   createCategory(){
     this.category.add(new Category(this.nameCategory,this.colorCategory));
+    this.closeModal();
   }
 }
