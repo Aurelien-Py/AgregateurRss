@@ -22,7 +22,7 @@ export class FeedPage {
   public image;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.feed = navParams.get('feed');
-    this.randomImage();
+    this.randomImage(this.feed);
     
   }
 
@@ -33,11 +33,16 @@ export class FeedPage {
   openlink(feed: Feed){
     window.open(feed.link);
   }
-  randomImage() {
+  randomImage(feed: Feed) {
     let min = 0;
     let max = 4;
     this.nombre = Math.floor((Math.random() * (max - min))+ min);
+    if(!feed.thumbnail){
     this.image = this.listImages[this.nombre];
+    }
+    else {
+      this.image =  feed.thumbnail ;
+    }
   }
 
 }
