@@ -9,11 +9,13 @@ import { IonicStorageModule } from '@ionic/storage';
 import { FeedComponent } from '../components/feed/feed';
 import { CategoryComponent } from './../components/category/category';
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FeedPage } from '../pages/feed/feed';
 import {CategoriesPage} from '../pages/categories/categories';
+import {BookmarksPage} from '../pages/bookmarks/bookmarks';
 
 import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
 
@@ -32,6 +34,7 @@ import { CategoryProvider } from '../providers/category/category';
     CategoryComponent,
     FeedPage,
     CategoriesPage,
+    BookmarksPage,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { CategoryProvider } from '../providers/category/category';
     CategoryComponent,
     FeedPage,
     CategoriesPage,
+    BookmarksPage,
   ],
   providers: [
     StatusBar,
