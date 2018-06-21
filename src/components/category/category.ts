@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
+import { Category } from '../../models/Category/category';
 
 /**
  * Generated class for the CategoryComponent component.
@@ -12,11 +14,10 @@ import { Component } from '@angular/core';
 })
 export class CategoryComponent {
 
-  text: string;
+  @Input() category: Category;
 
   constructor() {
     console.log('Hello CategoryComponent Component');
-    this.text = 'Hello World';
   }
 
 }

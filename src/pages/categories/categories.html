@@ -25,6 +25,8 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list *ngFor='let category of categories'>
+      <category (click)="goToCategoryPage(category)" [category]='category'></category>
+  </ion-list>
 </ion-content>
