@@ -52,7 +52,7 @@ export class HomePage implements AfterViewInit, OnInit {
             if(result['items']){
               for( let i = 0; i < result['items'].length; i++){
                 let temp = result['items'][i];
-                res.push(new Feed(temp['title'],temp['link'],temp['description'],temp['pubDate'], element));
+                res.push(new Feed(temp['title'],temp['link'],temp['description'],temp['pubDate'],temp['thumbnail'] ,element));
               }
             }
             this.feeds = this.feeds.concat(res);

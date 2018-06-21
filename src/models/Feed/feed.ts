@@ -5,6 +5,7 @@ export class Feed{
     public link: string;
     public description: string;
     public pubDate: Date;
+    public thumbnail: String;
     public flux: Flux;
     static latestId: number = 0;
 
@@ -14,13 +15,14 @@ export class Feed{
         return this.latestId
     }
 
-    constructor(title: string, link: string, description: string, pubDate: Date, flux: Flux) {
+    constructor(title: string, link: string, description: string, pubDate: Date, thumbnail:string, flux: Flux) {
         console.log('Feed');
         this.id = Feed.incrementId();
         this.title = title;
         this.link = link;
         this.description = description;
         this.pubDate = pubDate;
+        this.thumbnail = thumbnail;
         this.flux = flux;
     }
 }
