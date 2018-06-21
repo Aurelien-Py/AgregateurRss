@@ -12,7 +12,8 @@
         "ionic:serve": "ionic-app-scripts serve",
         "test": "ng test",
         "test-coverage": "ng test --code-coverage",
-        "test-ci": "ng test --watch=false --code-coverage --no-progress"
+        "test-ci": "ng test --watch=false --code-coverage --no-progress",
+        "cypress:open": "cypress open"
     },
     "dependencies": {
         "@angular-devkit/build-angular": "^0.6.8",
@@ -53,6 +54,7 @@
         "@types/node": "8.5.8",
         "codecov": "3.0.0",
         "connect": "3.6.5",
+        "cypress": "^3.0.1",
         "ionic-mocks": "1.2.1",
         "jasmine-core": "2.8.0",
         "jasmine-reporters": "2.3.0",
