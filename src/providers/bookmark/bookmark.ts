@@ -20,7 +20,7 @@ export class BookmarkProvider {
     this.storage.get('Bookmark').then(
       data => {
         console.log(data);
-        this.listBookmark = JSON.parse(data);
+        this.listBookmark = JSON.parse(data) || Array<Bookmark>(0);
       },
       error => {
         console.log('Erreur Bookmark Constructor');

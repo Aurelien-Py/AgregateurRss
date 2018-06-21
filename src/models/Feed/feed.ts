@@ -5,7 +5,7 @@ export class Feed{
     public link: string;
     public description: string;
     public pubDate: Date;
-    public thumbnail: String;
+    public thumbnail: string;
     public flux: Flux;
     static latestId: number = 0;
 
