@@ -9,8 +9,8 @@
   <ion-navbar>
     <ion-title>{{ feed.flux.title }}</ion-title>
     <ion-buttons end>
-        <button ion-button icon-only color="light" >
-            <ion-icon name="star" ></ion-icon>
+        <button ion-button icon-only color="light"  (click)= "saveFav()">
+            <ion-icon name="star"></ion-icon>
           </button>
         </ion-buttons>
   </ion-navbar>
@@ -25,7 +25,7 @@
   <br>
   <div margin-left style="color: rgb(201, 183, 183)">{{ feed.pubDate }}</div>
   <br>
-  <div margin-left margin-right text-justify>{{ feeddescription | StripHtmlTagsPipe }}</div>
+  <div *ngIf="feed.description.length > 0" margin-left margin-right text-justify>Description : <br> {{ feed.description | StripHtmlTagsPipe }}</div>
   <br>
 </ion-content>
 

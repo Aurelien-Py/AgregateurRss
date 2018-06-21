@@ -19,5 +19,12 @@
 
 
 <ion-content padding>
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to refresh"></ion-refresher-content>
+</ion-refresher>
+<ion-list>
+    <div *ngFor='let bookmark of listBookmarks'>
+        <feed (click)="goToFeedPage(bookmark.feed)" [feed]='bookmark.feed'></feed>
+    </div>
+</ion-list>
 </ion-content>

@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Feed } from '../../models/Feed/feed';
-
+import { BookmarkProvider } from '../../providers/bookmark/bookmark';
+import { Bookmark } from '../../models/Bookmark/bookmark';
+import { Storage } from '@ionic/storage';
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the FeedPage page.
  *
@@ -19,12 +22,11 @@ export class FeedPage {
   public feed: Feed;
   public nombre: number;
   public listImages = [ 'assets/imgs/Image1.jpg', 'assets/imgs/Image2.jpg','assets/imgs/Image3.jpg','assets/imgs/Image4.jpg'];
-  public image;
-  public feeddescription: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public image: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, private storage: Storage, public bookmark: BookmarkProvider ) {
     this.feed = navParams.get('feed');
     this.randomImage(this.feed);
-    this.getDescription(this.feed);
   }
 
   ionViewDidLoad() {
@@ -46,12 +48,14 @@ export class FeedPage {
     }
   }
 
-  getDescription(feed: Feed){
-    if (!feed.description){
-      this.feeddescription = null ;
-    }
-    else {
-      this.feeddescription = feed.description;
-    }
+  saveFav(){
+    console.log("jiji");
+   this.bookmark.add(new Bookmark(this.feed));
+   let toast = this.toastCtrl.create({
+    message: 'Flux ajouté aux favoris',
+    duration: 2000,
+    position: 'top'
+  });
+  toast.present();
   }
 }
