@@ -24,7 +24,8 @@
   <div class="title" style="text-align: center; font-size: 20px;"> {{feed.title}} </div> 
   <br>
   <div style="color: rgb(201, 183, 183)">{{ feed.pubDate }}</div>
-  <div text-justify>Description: {{ feed.description | StripHtmlTagsPipe }}</div>
+  <br>
+  <div text-justify>{{ feeddescription | StripHtmlTagsPipe }}</div>
   <br>
 </ion-content>
 
