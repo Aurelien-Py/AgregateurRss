@@ -26,7 +26,9 @@
 
 
 <ion-content>
-  <ion-list *ngFor='let category of categories'>
+  <ion-list>
+  <div *ngFor='let category of categories'>
       <category (click)="goToCategoryPage(category)" [category]='category'></category>
-  </ion-list>
+  </div>
+</ion-list>
 </ion-content>
