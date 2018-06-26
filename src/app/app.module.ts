@@ -9,6 +9,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { FeedComponent } from '../components/feed/feed';
 import { CategoryComponent } from './../components/category/category';
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -18,6 +19,7 @@ import {CategoriesPage} from '../pages/categories/categories';
 import { ListFluxPage } from '../pages/list-flux/list-flux';
 // YE_EA
 
+import {BookmarksPage} from '../pages/bookmarks/bookmarks';
 
 import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
 
@@ -39,6 +41,7 @@ import { CategoryProvider } from '../providers/category/category';
     //YE_BA
     ListFluxPage,
     //YE_EA
+    BookmarksPage,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { CategoryProvider } from '../providers/category/category';
     //YE_BA
     ListFluxPage,
     //YE_EA
+    BookmarksPage,
   ],
   providers: [
     StatusBar,

@@ -9,6 +9,8 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { ListFluxPage } from '../pages/list-flux/list-flux';
 // YE_EA
 
+import { BookmarksPage } from '../pages/bookmarks/bookmarks';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -30,6 +32,7 @@ export class MyApp {
       { title: 'Liste flux', component: ListFluxPage }
       // YE_EA
 
+      { title: 'Favoris', component: BookmarksPage }
     ];
 
   }

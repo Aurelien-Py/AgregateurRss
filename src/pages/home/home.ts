@@ -44,42 +44,44 @@ export class HomePage implements AfterViewInit, OnInit {
     this.flux.getAll().then(
       data => {
         console.log(data);
-        data.forEach(element => {
-          this.http.get('https://rss2json.com/api.json?rss_url=' + element.link)
-          .subscribe((result) => {
+        if(data !== null){
+          data.forEach(element => {
+            this.http.get('https://rss2json.com/api.json?rss_url=' + element.link)
+            .subscribe((result) => {
+                
+              let res = Array<Feed>(0);
+              if(result['items']){
+                for( let i = 0; i < result['items'].length; i++){
+                  let temp = result['items'][i];
+                  res.push(new Feed(temp['title'],temp['link'],temp['description'],temp['pubDate'],temp['thumbnail'] ,element));
+                }
+              }
+              this.feeds = this.feeds.concat(res);
+
+              this.feeds.sort((b,a) => {
+                let res = 0;
+                let da = new Date(a.pubDate);
+                let db = new Date(b.pubDate);
+                if(da > db){
+                  res = 1;
+                }else if(da < db){
+                  res = -1;
+                }
+
+                return res;
+              })
               
-            let res = Array<Feed>(0);
-            if(result['items']){
-              for( let i = 0; i < result['items'].length; i++){
-                let temp = result['items'][i];
-                res.push(new Feed(temp['title'],temp['link'],temp['description'],temp['pubDate'],temp['thumbnail'] ,element));
+              console.log(this.feeds);
+              if(refresher !== null){
+                refresher.complete();
               }
-            }
-            this.feeds = this.feeds.concat(res);
-
-            this.feeds.sort((b,a) => {
-              let res = 0;
-              let da = new Date(a.pubDate);
-              let db = new Date(b.pubDate);
-              if(da > db){
-                res = 1;
-              }else if(da < db){
-                res = -1;
-              }
-
-              return res;
-            })
+      
+            }, (error) => {
+                console.log(error);
+            });
             
-            console.log(this.feeds);
-            if(refresher !== null){
-              refresher.complete();
-            }
-    
-          }, (error) => {
-              console.log(error);
           });
-          
-        });
+        }
       },
       error => {
 

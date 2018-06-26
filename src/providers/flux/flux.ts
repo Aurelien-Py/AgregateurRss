@@ -19,7 +19,7 @@ export class FluxProvider {
     this.storage.get('Flux').then(
       data => {
         console.log(data);
-        this.listFlux = JSON.parse(data);
+        this.listFlux = JSON.parse(data) || Array<Flux>(0);
       },
       error => {
         console.log('Erreur Flux Constructor');

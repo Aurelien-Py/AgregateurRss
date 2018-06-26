@@ -19,7 +19,7 @@ export class CategoryProvider {
     this.storage.get('Category').then(
       data => {
         console.log(data);
-        this.listCategory = JSON.parse(data);
+        this.listCategory = JSON.parse(data) || Array<Category>(0);
       },
       error => {
         console.log('Erreur Category Constructor');
