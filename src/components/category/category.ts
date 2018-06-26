@@ -20,8 +20,13 @@ export class CategoryComponent {
   constructor(private categoryP : CategoryProvider) {
     console.log('Hello CategoryComponent Component');
   }
-
-  remove(id: number){
+/**
+ *
+ *
+ * @param {number} id
+ * @memberof CategoryComponent
+ */
+remove(id: number){
     this.categoryP.remove(id);
   }
 
