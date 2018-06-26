@@ -29,7 +29,7 @@ export class MyApp {
       { title: 'Accueil', component: HomePage },
       { title: 'Catégories', component: CategoriesPage },
       // YE_BA
-      { title: 'Liste flux', component: ListFluxPage }
+      { title: 'Liste flux', component: ListFluxPage },
       // YE_EA
 
       { title: 'Favoris', component: BookmarksPage }
