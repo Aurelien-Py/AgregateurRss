@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { CategoriesPage } from '../pages/categories/categories';
+// YE_BA
+import { ListFluxPage } from '../pages/list-flux/list-flux';
+// YE_EA
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +25,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Accueil', component: HomePage },
-      { title: 'Catégories', component: CategoriesPage }
+      { title: 'Catégories', component: CategoriesPage },
+      // YE_BA
+      { title: 'Liste flux', component: ListFluxPage }
+      // YE_EA
+
     ];
 
   }
