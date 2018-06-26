@@ -15,6 +15,10 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FeedPage } from '../pages/feed/feed';
 import {CategoriesPage} from '../pages/categories/categories';
+// YE_BA
+import { ListFluxPage } from '../pages/list-flux/list-flux';
+// YE_EA
+
 import {BookmarksPage} from '../pages/bookmarks/bookmarks';
 
 import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
@@ -34,6 +38,9 @@ import { CategoryProvider } from '../providers/category/category';
     CategoryComponent,
     FeedPage,
     CategoriesPage,
+    //YE_BA
+    ListFluxPage,
+    //YE_EA
     BookmarksPage,
   ],
   imports: [
@@ -52,6 +59,9 @@ import { CategoryProvider } from '../providers/category/category';
     CategoryComponent,
     FeedPage,
     CategoriesPage,
+    //YE_BA
+    ListFluxPage,
+    //YE_EA
     BookmarksPage,
   ],
   providers: [

@@ -39,6 +39,12 @@ export class BookmarksPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BookmarksPage');
   }
+
+  /**
+   * Permet d'afficher la la page Feed avec image, titre, description, date et un accès au lien du site
+   * 
+   * @param feed 
+   */
   goToFeedPage(feed: Feed){
     this.navCtrl.push(FeedPage, {'feed' : feed});
   }
