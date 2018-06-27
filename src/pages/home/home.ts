@@ -16,6 +16,7 @@ import { Category } from '../../models/Category/category';
 export class HomePage implements AfterViewInit, OnInit {
 
   feeds: Array<Feed>;
+  loading: boolean;
 
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider, private modal: ModalController, public category: CategoryProvider) {
     this.feeds = Array<Feed>(0);
@@ -48,6 +49,9 @@ export class HomePage implements AfterViewInit, OnInit {
     this.flux.add(new Flux('Journal du Hacker','https://www.journalduhacker.net/rss', tempCatg));
     this.flux.add(new Flux('Korben','https://korben.info/feed', tempCatg));
     this.flux.add(new Flux("Marmiton", "http://www.marmiton.org/rss/contenus-groupe.aspx", tempCatgCuisine));
+
+    this.loading = true;
+    
     this.doRefresh(null);
   }
 
@@ -88,7 +92,7 @@ export class HomePage implements AfterViewInit, OnInit {
 
                 return res;
               })
-              
+              this.loading = false;
               console.log(this.feeds);
               if(refresher !== null){
                 refresher.complete();

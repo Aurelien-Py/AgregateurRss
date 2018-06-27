@@ -137,6 +137,13 @@ export class CategoryProvider {
     return res;
   }
 
+  /**
+   *  Verifie si une categorie existe deja ou non
+   *
+   * @param {Category} c
+   * @returns {boolean}
+   * @memberof CategoryProvider
+   */
   alreadyExist(c: Category){
     return this.getByTitle(c.title) !== null;
   }

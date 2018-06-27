@@ -18,6 +18,9 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingText="Pull to refresh"></ion-refresher-content>
     </ion-refresher>
+    <div *ngIf="loading" class="loading-spinner" style="text-align: center;">
+        <ion-spinner class="spinner spinner-ios spinner-crescent spinner-ios-crescent"></ion-spinner>
+    </div>
     <ion-list>
         <div *ngFor='let feed of feeds'>
             <feed (click)="goToFeedPage(feed)" [feed]='feed'></feed>

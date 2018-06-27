@@ -15,7 +15,8 @@ export class FluxProvider {
   public listFlux = Array<Flux>(0);
 
   /**
-   *Creates an instance of FluxProvider.
+  * Creates an instance of FluxProvider.
+  * 
   * @param {HttpClient} http
   * @param {Storage} storage
   * @memberof FluxProvider
@@ -37,7 +38,7 @@ export class FluxProvider {
    * Fonction qui sert a ajouter un flux a l'environnement
    *
    * @param {Flux} f
-   * @returns boolean : indique son succes
+   * @returns {boolean} : indique son succes
    * @memberof FluxProvider
    */
   add(f: Flux){
@@ -87,9 +88,9 @@ export class FluxProvider {
   }
 
   /**
-   *Fonction retournant la liste des flux enregistrés
+   *  Fonction retournant la liste des flux enregistrés
    *
-   * @returns Promise<Array<Flux>>
+   * @returns {Promise<Array<Flux>>}
    * @memberof FluxProvider
    */
   getAll(){
@@ -111,7 +112,7 @@ export class FluxProvider {
    *  Fonction qui verifie si un flux existe deja ou non
    *
    * @param {Flux} f
-   * @returns boolean
+   * @returns {boolean}
    * @memberof FluxProvider
    */
   alreadyExist(f: Flux){
@@ -131,7 +132,7 @@ export class FluxProvider {
    *  Fonction qui retourne a Flux a l'aide de son id
    *
    * @param {string} id
-   * @returns Flux
+   * @returns {Flux}
    * @memberof FluxProvider
    */
   getById(id: string){
