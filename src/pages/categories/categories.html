@@ -6,29 +6,29 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    
-          <button ion-button menuToggle>
+    <ion-navbar>
+
+        <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
 
-    <ion-title>Categories</ion-title>
+        <ion-title>Categories</ion-title>
 
-    <ion-buttons end>
-        <button ion-button icon-only color="light" clear (click)="openModal()">
+        <ion-buttons end>
+            <button ion-button icon-only color="light" clear (click)="openModal()">
             <ion-icon ios="ios-add" md="md-add" ></ion-icon>
           </button>
         </ion-buttons>
 
-  </ion-navbar>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-list>
-  <div *ngFor='let category of categories'>
-      <category (click)="goToCategoryPage(category)" [category]='category'></category>
-  </div>
-</ion-list>
+    <ion-list>
+        <div *ngFor='let category of categories'>
+            <category [category]='category'></category>
+        </div>
+    </ion-list>
 </ion-content>

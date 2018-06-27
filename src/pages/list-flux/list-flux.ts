@@ -43,10 +43,6 @@ export class ListFluxPage {
     modalAddFlux.present();
   }
 
-  goToListFluxPage(ListFlux: Flux){
-    this.navCtrl.push(ListFluxPage, {'Flux' : Flux});
-  }
-
 }
 
 // YE_EA

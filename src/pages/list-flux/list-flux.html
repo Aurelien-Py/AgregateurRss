@@ -8,32 +8,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Liste flux</ion-title>
+    <ion-navbar>
+        <ion-title>Liste flux</ion-title>
 
-    <button ion-button menuToggle>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
 
 
-  <ion-buttons end>
-      <button ion-button icon-only color="light" clear (click)="openModal()">
+        <ion-buttons end>
+            <button ion-button icon-only color="light" clear (click)="openModal()">
           <ion-icon ios="ios-add" md="md-add" ></ion-icon>
       </button>
-  </ion-buttons>
+        </ion-buttons>
 
-  </ion-navbar>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-list>
-    <div *ngFor= 'let flux of ListFlux' >
-      <flux (click)="goToListFluxPage(flux)" [flux]='flux'></flux>
-      <!-- <p>{{flux.title}}</p> -->
-    </div>
-  </ion-list>
+    <ion-list>
+        <div *ngFor='let flux of ListFlux'>
+            <flux [flux]='flux'></flux>
+            <!-- <p>{{flux.title}}</p> -->
+        </div>
+    </ion-list>
 </ion-content>
 
 

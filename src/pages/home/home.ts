@@ -8,6 +8,7 @@ import { Feed } from '../../models/Feed/feed';
 import { Flux } from '../../models/Flux/flux';
 import { FeedPage } from '../feed/feed';
 import { Category } from '../../models/Category/category';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'page-home',
@@ -17,10 +18,16 @@ export class HomePage implements AfterViewInit, OnInit {
 
   feeds: Array<Feed>;
   loading: boolean;
+  subscription: Subscription;
 
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider, private modal: ModalController, public category: CategoryProvider) {
     this.feeds = Array<Feed>(0);
     console.log(this.feeds);
+
+    this.subscription = this.flux.getListFlux().subscribe( data => {
+      this.doRefresh(null);
+    });
+
   }
 
   /**

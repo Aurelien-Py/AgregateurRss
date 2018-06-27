@@ -1,3 +1,4 @@
+import { Observable, Subject } from 'rxjs/Rx';
 import { Flux } from './../../models/Flux/flux';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,6 +14,7 @@ import { Storage } from '@ionic/storage';
 export class FluxProvider {
 
   public listFlux = Array<Flux>(0);
+  private subject = new Subject<Array<Flux>>();
 
   /**
   * Creates an instance of FluxProvider.
@@ -32,6 +34,14 @@ export class FluxProvider {
         console.log('Erreur Flux Constructor');
       }
     );
+  }
+
+  update() {
+    this.subject.next(this.listFlux);
+  }
+
+  getListFlux(): Observable<Array<Flux>> {
+      return this.subject.asObservable();
   }
 
   /**
@@ -75,6 +85,7 @@ export class FluxProvider {
    */
   save(){
     this.storage.set('Flux', JSON.stringify(this.listFlux));
+    this.update();
   }
 
 

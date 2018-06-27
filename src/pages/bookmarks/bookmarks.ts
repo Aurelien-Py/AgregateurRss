@@ -5,6 +5,7 @@ import { Bookmark } from './../../models/Bookmark/bookmark';
 import { BookmarkProvider } from '../../providers/bookmark/bookmark';
 import { Feed } from '../../models/Feed/feed';
 import { FeedPage } from '../feed/feed';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Generated class for the BookmarksPage page.
@@ -21,6 +22,7 @@ import { FeedPage } from '../feed/feed';
 export class BookmarksPage {
 
   public listBookmarks = Array<Bookmark>(0);
+  private subscription: Subscription;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewC: ViewController, public http: HttpClient, public bookmark: BookmarkProvider) {
     
@@ -32,6 +34,11 @@ export class BookmarksPage {
         console.log("Error while loading bookmarks");
       }
     )
+
+    this.subscription = this.bookmark.getListBookmark().subscribe( data => {
+      this.listBookmarks = data;
+      console.log(data);
+    });
     
   }
   

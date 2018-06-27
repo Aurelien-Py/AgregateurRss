@@ -1,3 +1,4 @@
+import { Observable, Subject } from 'rxjs/Rx';
 import { Feed } from './../../models/Feed/feed';
 import { Bookmark } from './../../models/Bookmark/bookmark';
 import { HttpClient } from '@angular/common/http';
@@ -14,6 +15,7 @@ import { Storage } from '@ionic/storage';
 export class BookmarkProvider {
 
   public listBookmark = Array<Bookmark>(0);
+  private subject = new Subject<Array<Bookmark>>();
 
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello BookmarkProvider Provider');
@@ -26,6 +28,14 @@ export class BookmarkProvider {
         console.log('Erreur Bookmark Constructor');
       }
     );
+  }
+
+  update() {
+    this.subject.next(this.listBookmark);
+  }
+
+  getListBookmark(): Observable<Array<Bookmark>> {
+      return this.subject.asObservable();
   }
 
   /**
@@ -91,6 +101,7 @@ export class BookmarkProvider {
    */
   save(){
     this.storage.set('Bookmark', JSON.stringify(this.listBookmark));
+    this.update();
   }
 
   /**

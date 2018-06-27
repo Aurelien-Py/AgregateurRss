@@ -1,3 +1,4 @@
+import { Observable, Subject } from 'rxjs/Rx';
 import { Category } from './../../models/Category/category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,6 +14,7 @@ import { Storage } from '@ionic/storage';
 export class CategoryProvider {
 
   public listCategory = Array<Category>(0);
+  private subject = new Subject<Array<Category>>();
 
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello CategoryProvider Provider');
@@ -26,6 +28,15 @@ export class CategoryProvider {
       }
     );
   }
+
+  update() {
+    this.subject.next(this.listCategory);
+  }
+
+  getListCategory(): Observable<Array<Category>> {
+      return this.subject.asObservable();
+  }
+
   /**
    *Fonction permettant d'ajouter une catégorie à la liste des favoris
    *
@@ -65,6 +76,7 @@ export class CategoryProvider {
    */
   save(){
     this.storage.set('Category', JSON.stringify(this.listCategory));
+    this.update();
   }
 
   /**

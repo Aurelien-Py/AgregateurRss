@@ -1,7 +1,9 @@
+import { ListFluxPage } from './../list-flux/list-flux';
 import { Component } from '@angular/core';
 import { CategoryProvider } from './../../providers/category/category';
 import { IonicPage, NavController, NavParams, ModalController, Modal  } from 'ionic-angular';
 import { Category } from '../../models/Category/category';
+import { Subscription } from 'rxjs/Subscription';
 
 
 /**
@@ -19,13 +21,19 @@ import { Category } from '../../models/Category/category';
 export class CategoriesPage {
 
   categories: Array<Category>;
+  subscription: Subscription;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modal: ModalController,  public categoryP: CategoryProvider) {
     this.categories = Array<Category>(0);
     console.log(this.categories);
     this.categoryP.getAll().then(data => {
       this.categories = data;
-    })
+    });
+
+    this.subscription = this.categoryP.getListCategory().subscribe( data => {
+      this.categories = data;
+      console.log(data);
+    });
   }
 
   
@@ -41,16 +49,6 @@ ionViewDidLoad() {
 openModal(){
     const modalAddFlux : Modal = this.modal.create('ModalAddingCategoryPage');
     modalAddFlux.present();
-  }
-  
-/**
- *Fonction permettant d'accéder à la page de la catégorie
- *
- * @param {Category} category
- * @memberof CategoriesPage
- */
-goToCategoryPage(category: Category){
-    this.navCtrl.push(CategoriesPage, {'category' : category});
   }
 
 }
