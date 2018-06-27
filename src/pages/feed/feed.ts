@@ -71,7 +71,6 @@ export class FeedPage {
    * */
 
   saveFav(){
-    console.log("jiji");
    this.bookmark.add(new Bookmark(this.feed));
    let toast = this.toastCtrl.create({
     message: 'Flux ajouté aux favoris',
@@ -89,7 +88,6 @@ export class FeedPage {
    */
 
   supprFav(){
-    console.log("jojo");
     this.bookmark.remove(this.feed.id);
     let toast = this.toastCtrl.create({
       message: 'Flux supprimé des favoris',
