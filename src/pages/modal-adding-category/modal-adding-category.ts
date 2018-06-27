@@ -28,12 +28,20 @@ export class ModalAddingCategoryPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalAddingCategoryPage');
   }
-
-  closeModal(){
+/**
+ *Fonction permettant de fermer un modal ouvert
+ *
+ * @memberof ModalAddingCategoryPage
+ */
+closeModal(){
     this.viewC.dismiss(); 
   }
-
-  createCategory(){
+/**
+ *Fonction permettant de créer une catégorie avec son nom et sa couleur
+ *
+ * @memberof ModalAddingCategoryPage
+ */
+createCategory(){
     this.category.add(new Category(this.nameCategory,this.colorCategory));
     this.closeModal();
     let toast = this.toastCtrl.create({

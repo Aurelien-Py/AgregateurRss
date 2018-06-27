@@ -22,10 +22,22 @@ export class HomePage implements AfterViewInit, OnInit {
     console.log(this.feeds);
   }
 
+  /**
+   *Fonction permettant d'accéder à la page du feed sélectionné
+   *
+   * @param {Feed} feed
+   * @memberof HomePage
+   */
   goToFeedPage(feed: Feed){
     this.navCtrl.push(FeedPage, {'feed' : feed});
   }
 
+  /**
+   *Fonction créant des catégories et des flux au lancement de l'application 
+   *Utilisation uniquement dans le cadre du développement
+   *
+   * @memberof HomePage
+   */
   ngAfterViewInit(){
     this.category.add(new Category('Informatique','123456'));
     this.category.add(new Category("Cuisine", "CACACA"))
@@ -39,6 +51,12 @@ export class HomePage implements AfterViewInit, OnInit {
     this.doRefresh(null);
   }
 
+  /**
+   *Fonction permettant de recharger la page
+   *
+   * @param {*} refresher
+   * @memberof HomePage
+   */
   doRefresh(refresher){
     this.feeds = Array<Feed>(0);
     this.flux.getAll().then(
@@ -93,6 +111,11 @@ export class HomePage implements AfterViewInit, OnInit {
 
   }
 
+  /**
+   *Fonction permettant l'ouverture d'un modal pour l'ajout d'un flux
+   *
+   * @memberof HomePage
+   */
   openModal(){
     const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
     modalAddFlux.present();

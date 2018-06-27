@@ -41,10 +41,20 @@ export class ModalAddingFluxPage {
     console.log('ionViewDidLoad ModalAddingFluxPage');
   }
 
+  /**
+   *Fonction permettant de fermer un modal ouvert
+   *
+   * @memberof ModalAddingFluxPage
+   */
   closeModal(){
     this.viewC.dismiss(); 
   }
-  
+
+  /**
+   *Fonction permettant d'ajouter un flux avec son nom, son adresse et sa catégorie
+   *
+   * @memberof ModalAddingFluxPage
+   */
   addFlux(){
     this.flux.add(new Flux(this.nameFlux,this.addressFlux, this.categoryFlux));
     this.closeModal();
