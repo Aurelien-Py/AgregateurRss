@@ -86,11 +86,10 @@ export class FluxProvider {
     this.storage.clear();
   }
 
-
   /**
+   *Fonction retournant la liste des flux enregistrés
    *
-   *
-   * @returns
+   * @returns Promise<Array<Flux>>
    * @memberof FluxProvider
    */
   getAll(){
@@ -109,10 +108,10 @@ export class FluxProvider {
   }
 
   /**
-   *
+   *  Fonction qui verifie si un flux existe deja ou non
    *
    * @param {Flux} f
-   * @returns
+   * @returns boolean
    * @memberof FluxProvider
    */
   alreadyExist(f: Flux){
@@ -129,10 +128,10 @@ export class FluxProvider {
   }
 
   /**
-   *
+   *  Fonction qui retourne a Flux a l'aide de son id
    *
    * @param {number} id
-   * @returns
+   * @returns Flux
    * @memberof FluxProvider
    */
   getById(id: number){
