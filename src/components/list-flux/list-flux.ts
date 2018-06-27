@@ -1,6 +1,11 @@
 //YE_BA
 
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
+import { FluxProvider } from '../../providers/flux/flux';
+import { ModalController, Modal  } from 'ionic-angular';
+
+
 //import { Flux } from '../../models/Flux/flux';
 
 
@@ -16,12 +21,21 @@ import { Component } from '@angular/core';
 })
 export class ListFluxComponent {
 
-  //text: string;
+ 
+  @Input() ListFluxComponent: ListFluxComponent;
 
-  constructor() {
+  constructor(private fluxP : FluxProvider, private modal: ModalController) {
     console.log('Hello ListFluxComponent Component');
-    //this.text = 'Hello World';
   }
+
+  remove(id: string){
+    this.fluxP.remove(id);
+  }
+
+  openModal(){
+    const modalAddFlux : Modal = this.modal.create('ModalAddingListFluxPage');
+      modalAddFlux.present();
+    }
 
 }
 
