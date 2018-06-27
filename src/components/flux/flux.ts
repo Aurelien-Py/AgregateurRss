@@ -23,10 +23,11 @@ export class FluxComponent {
     console.log('Hello ListFluxComponent Component');
   }
 
-  modify(id: string){
+  // modify(id: string){
     //this.fluxP.modify(id);
     //add modify function in /providers/flux.ts
-  }
+    //NO MODIFY FUNCTION FOR NOW
+  // }
 
   remove(id: string){
     this.fluxP.remove(id);
