@@ -96,7 +96,7 @@ export class FeedPage {
      
     });
     toast.present();
-    }
+  }
 
   testFav(){
     console.log('call');
@@ -105,6 +105,10 @@ export class FeedPage {
     } else {
       this.saveFav();
     }
+  }
+
+  alreadyExist(){
+    return this.bookmark.alreadyExist(this.feed);
   }
 }
 
