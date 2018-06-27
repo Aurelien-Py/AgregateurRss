@@ -16,13 +16,23 @@ describe('Models: Flux', () => {
 
     });
 
-    it('increase id', () => {
+    it('Same id', () => {
+        let c: Category = new Category('testCategory','color');
+        let f: Flux = new Flux('test','test.fr',c);
+        let f2: Flux = new Flux('test','test.fr',c);
+
+        expect(f2.id).toEqual(f.id);
+
+    });
+
+    it('Different id', () => {
         let c: Category = new Category('testCategory','color');
         let f: Flux = new Flux('test','test.fr',c);
         let f2: Flux = new Flux('test2','test2.fr',c);
 
-        expect(f2.id).toBeGreaterThan(f.id);
+        expect(f2.id).not.toEqual(f.id);
 
     });
+
 
 });
