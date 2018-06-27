@@ -54,10 +54,10 @@ export class FluxProvider {
   /**
    * Fonction qui sert a supprimer un flux de l'environnement
    *
-   * @param {number} id
+   * @param {string} id
    * @memberof FluxProvider
    */
-  remove(id: number){
+  remove(id: string){
     for(let i = 0; i < this.listFlux.length; i++){
       if(this.listFlux[i].id === id){
         this.listFlux.splice(i,1);
@@ -130,11 +130,11 @@ export class FluxProvider {
   /**
    *  Fonction qui retourne a Flux a l'aide de son id
    *
-   * @param {number} id
+   * @param {string} id
    * @returns Flux
    * @memberof FluxProvider
    */
-  getById(id: number){
+  getById(id: string){
     let res: Flux = null;
 
     for(let i = 0; i < this.listFlux.length; i++){

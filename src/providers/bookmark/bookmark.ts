@@ -45,19 +45,43 @@ export class BookmarkProvider {
   }
 
   /**
-   *Fonction permettant de retirer un article de la liste des favoris
+   *Fonction permettant de retirer un article de la liste des favoris a l'aide d'un id d'un bookmark
    *
-   * @param {number} id
+   * @param {string} id Bookmark
+   * @return {Bookmark} le bookmark supprime
    * @memberof BookmarkProvider
    */
-  remove(id: number){
+  removeById(id: string){
+    let res: Bookmark = null;
     for(let i = 0; i < this.listBookmark.length; i++){
       if(this.listBookmark[i].id === id){
-        this.listBookmark.splice(i,1);
+        res = this.listBookmark.splice(i,1)[0];
         this.save();
         break;
       }
     }
+
+    return res;
+  }
+
+    /**
+   *Fonction permettant de retirer un article de la liste des favoris a l'aide d'un feed
+   *
+   * @param {number} id
+   * @return {Bookmark} le bookmark supprime
+   * @memberof BookmarkProvider
+   */
+  removeByFeed(feed: Feed){
+    let res: Bookmark = null;
+    for(let i = 0; i < this.listBookmark.length; i++){
+      if(this.listBookmark[i].feed.id === feed.id){
+        res = this.listBookmark.splice(i,1)[0];
+        this.save();
+        break;
+      }
+    }
+
+    return res;
   }
 
   /**
@@ -101,11 +125,11 @@ export class BookmarkProvider {
   /**
    *Fonction retournant un article favori selon son id
    *
-   * @param {number} id
+   * @param {string} id
    * @returns Bookmark
    * @memberof BookmarkProvider
    */
-  getById(id: number){
+  getById(id: string){
     let res: Bookmark = null;
 
     for(let i = 0; i < this.listBookmark.length; i++){
@@ -122,14 +146,15 @@ export class BookmarkProvider {
    *Fonction retournant un article favori selon selon son Feed
    *
    * @param {Feed} f
-   * @returns Bookmark
+   * @returns {Bookmark}
    * @memberof BookmarkProvider
    */
   getByFeed(f: Feed){
     let res: Bookmark = null;
+    console.log(this.listBookmark);
 
     for(let i = 0; i < this.listBookmark.length; i++){
-      if(this.listBookmark[i].feed === f){
+      if(this.listBookmark[i].feed.id === f.id){
         res = this.listBookmark[i];
         break;
       }

@@ -1,20 +1,23 @@
 import { Feed } from './../Feed/feed';
+import { Md5 } from 'ts-md5';
+
+/**
+ * Bookmark
+ * 
+ * Classe qui sert a modeliser un article mis en favoris 
+ *  id: number
+ *  feed: Feed
+ * 
+ */
 export class Bookmark{
-    public id: number;
+    public id: string;
     public feed: Feed;
     public dateCreation: Date;
-    static latestId: number = 0;
-
-    static incrementId() {
-        if (!this.latestId) this.latestId = 1
-        else this.latestId++
-        return this.latestId
-    }
 
     constructor(feed: Feed) {
         console.log('Bookmark');
-        this.id = Bookmark.incrementId();
         this.feed = feed;
         this.dateCreation = new Date();
+        this.id = Md5.hashStr(this.feed.title + this.feed.link).toString();
     }
 }

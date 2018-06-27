@@ -88,7 +88,7 @@ export class FeedPage {
    */
 
   supprFav(){
-    this.bookmark.remove(this.feed.id);
+    this.bookmark.removeByFeed(this.feed);
     let toast = this.toastCtrl.create({
       message: 'Flux supprimé des favoris',
       duration: 2000,
@@ -99,14 +99,13 @@ export class FeedPage {
     }
 
   testFav(){
-    console.log(this.bookmark.alreadyExist(this.feed));
+    console.log('call');
     if (this.bookmark.alreadyExist(this.feed)){
       this.supprFav();
-    }
-    else {
+    } else {
       this.saveFav();
     }
-    }
   }
+}
 
 

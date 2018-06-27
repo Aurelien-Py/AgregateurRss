@@ -45,10 +45,10 @@ export class CategoryProvider {
   /**
    *Fonction permettant de supprimer une catégorie de la liste des cat"gories
    *
-   * @param {number} id
+   * @param {string} id
    * @memberof CategoryProvider
   */
-  remove(id: number){
+  remove(id: string){
     for(let i = 0; i < this.listCategory.length; i++){
       if(this.listCategory[i].id === id){
         this.listCategory.splice(i,1);
@@ -100,11 +100,11 @@ export class CategoryProvider {
   /**
    *Fonction retournant une catégorie selon son id
    *
-   * @param {number} id
+   * @param {string} id
    * @returns Category
    * @memberof CategoryProvider
    */
-  getById(id: number){
+  getById(id: string){
     let res: Category = null;
 
     for(let i = 0; i < this.listCategory.length; i++){
