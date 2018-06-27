@@ -24,7 +24,7 @@ export class FeedPage {
   public listImages = [ 'assets/imgs/Image1.jpg', 'assets/imgs/Image2.jpg','assets/imgs/Image3.jpg','assets/imgs/Image4.jpg'];
   public image: string;
   public listBookmarks = Array<Bookmark>(0);
-  public status: number;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, private storage: Storage, public bookmark: BookmarkProvider ) {
     this.feed = navParams.get('feed');
     this.randomImage(this.feed);
