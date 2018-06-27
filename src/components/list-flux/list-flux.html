@@ -9,6 +9,12 @@
     <!-- <ion-item>
       <h2>{{flux.title}}</h2>
     </ion-item> -->
+
+        <!-- <ion-item [ngStyle]="{'border-right-color':'#' + category.color }"> -->
+        
+    <ion-item>
+          <h2>{{flux.title}}</h2>
+    </ion-item>
     
     <ion-item-options side="right">
       <button ion-button color="primary">
@@ -19,6 +25,15 @@
         </button>
     </ion-item-options>
   </ion-item-sliding>
+
+  <!-- <ion-item-options side="right">
+      <button ion-button color="thirdly" icon-start (click)="openModal()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button color="danger" icon-start (click)="remove(category.id)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+  </ion-item-options> -->
 
 <!-- YE_EA -->
 
