@@ -42,7 +42,8 @@ closeModal(){
  * @memberof ModalAddingCategoryPage
  */
 createCategory(){
-    this.category.add(new Category(this.titleCategory,this.colorCategory));
+  
+    this.category.add(new Category(this.titleCategory,this.colorCategory.replace('#','')));
     this.closeModal();
     let toast = this.toastCtrl.create({
       message: 'Catégorie créée',
