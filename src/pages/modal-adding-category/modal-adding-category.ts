@@ -19,7 +19,7 @@ import { ToastController } from 'ionic-angular';
 export class ModalAddingCategoryPage {
 
 
-  nameCategory: string;
+  titleCategory: string;
   colorCategory: string;
 
   constructor(public navCtrl: NavController,  private toastCtrl: ToastController, public navParams: NavParams, public category: CategoryProvider, public viewC: ViewController) {
@@ -42,7 +42,7 @@ closeModal(){
  * @memberof ModalAddingCategoryPage
  */
 createCategory(){
-    this.category.add(new Category(this.nameCategory,this.colorCategory));
+    this.category.add(new Category(this.titleCategory,this.colorCategory));
     this.closeModal();
     let toast = this.toastCtrl.create({
       message: 'Catégorie créée',
