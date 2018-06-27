@@ -19,19 +19,20 @@
   <ion-buttons end>
       <button ion-button icon-only color="light" clear (click)="openModal()">
           <ion-icon ios="ios-add" md="md-add" ></ion-icon>
-        </button>
-      </ion-buttons>
+      </button>
+  </ion-buttons>
 
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <div *ngFor = 'let flux of ListFlux' >
-    <p>{{flux.title}}</p>
-  </div>
-</ion-content>
+<!-- <ion-content padding="true">
+  <ion-list *ngFor= 'let flux of ListFlux' >
+      <flux (click)="goToListFluxPage(ListFlux)" [ListFlux]='ListFlux'></flux>
+      <p>{{flux.title}}</p>
+  </ion-list>
+</ion-content> -->
 
 
 <!-- YE_EA -->

@@ -2,7 +2,7 @@
 
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Modal } from 'ionic-angular';
 
 import { FluxProvider } from "../../providers/flux/flux";
 import { Flux } from "../../models/Flux/flux";
@@ -23,19 +23,29 @@ export class ListFluxPage {
 
   ListFlux: Array<Flux> ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public FluxP: FluxProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public FluxP: FluxProvider, private modal: ModalController) {
     this.ListFlux = Array<Flux>(0) ;
     this.FluxP.getAll().then(data =>{
       this.ListFlux = data ;
+    },
+    error => {
+      console.log("Error while loading Flux List");
     } );
-  
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListFluxPage');
   }
 
-  
+  openModal(){
+    const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
+    modalAddFlux.present();
+  }
+
+  goToListFluxPage(ListFlux: Flux){
+    this.navCtrl.push(ListFluxPage, {'Flux' : Flux});
+  }
 
 }
 
