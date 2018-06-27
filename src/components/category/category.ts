@@ -29,7 +29,7 @@ export class CategoryComponent {
  * @memberof CategoryComponent
  */
 
-remove(id: number){
+remove(id: string){
     this.categoryP.remove(id);
   }
 /**
