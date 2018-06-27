@@ -38,7 +38,7 @@ remove(id: string){
  * @memberof CategoryComponent
  */
 openModal(){
-  const modalAddFlux : Modal = this.modal.create('ModalAddingCategoryPage');
+  const modalAddFlux : Modal = this.modal.create('ModalModifyCategoryPage',{'category' : this.category});
     modalAddFlux.present();
   }
 

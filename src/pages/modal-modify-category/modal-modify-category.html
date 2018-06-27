@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ModalAddingCategoryPage page.
+  Generated template for the ModalModifyCategoryPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,20 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Ajouter une catégorie</ion-title>
-
+    <ion-title>Modifier la catégorie</ion-title>  
     <ion-buttons end>
-        <button ion-button icon-only color="light" clear (click)="closeModal()">
-            <ion-icon ios="ios-close" md="md-close" ></ion-icon>
-          </button>
-        </ion-buttons>
+    <button ion-button icon-only color="light" clear (click)="closeModal()">
+        <ion-icon ios="ios-close" md="md-close" ></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
     <ion-list>
 
         <div padding>
@@ -35,8 +33,8 @@
 
        
         <div padding>
-            <button ion-button block (click)="createCategory()">Créer</button>
+            <button ion-button block (click)="modifyCategory()">Modifier</button>
           </div>
-    </ion-list>      
+</ion-list>      
 
 </ion-content>
