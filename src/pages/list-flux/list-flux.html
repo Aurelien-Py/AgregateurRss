@@ -27,7 +27,7 @@
 </ion-header>
 
 
-<ion-content padding="true">
+<ion-content>
   <ion-list>
     <div *ngFor= 'let flux of ListFlux' >
       <flux (click)="goToListFluxPage(flux)" [flux]='flux'></flux>
