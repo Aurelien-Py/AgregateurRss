@@ -6,15 +6,15 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Ajouter une catégorie</ion-title>
+    <ion-navbar>
+        <ion-title>Ajouter une catégorie</ion-title>
 
-    <ion-buttons end>
-        <button ion-button icon-only color="light" clear (click)="closeModal()">
+        <ion-buttons end>
+            <button ion-button icon-only color="light" clear (click)="closeModal()">
             <ion-icon ios="ios-close" md="md-close" ></ion-icon>
           </button>
         </ion-buttons>
-  </ion-navbar>
+    </ion-navbar>
 
 </ion-header>
 
@@ -24,19 +24,19 @@
     <ion-list>
 
         <div padding>
-          <ion-item>
-            <ion-label floating>Nom</ion-label>
-            <ion-input [(ngModel)]="nameCategory" type="text"></ion-input>
-          </ion-item>
-        <ion-item>
-            <ion-input [(ngModel)]="colorCategory" type="color"></ion-input>
-          </ion-item>
+            <ion-item>
+                <ion-label floating>Nom</ion-label>
+                <ion-input [(ngModel)]="titleCategory" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input [(ngModel)]="colorCategory" type="color"></ion-input>
+            </ion-item>
         </div>
 
-       
+
         <div padding>
             <button ion-button block (click)="createCategory()">Créer</button>
-          </div>
-    </ion-list>      
+        </div>
+    </ion-list>
 
 </ion-content>

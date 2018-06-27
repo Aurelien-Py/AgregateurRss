@@ -94,12 +94,11 @@ export class FluxProvider {
    * @memberof FluxProvider
    */
   getAll(){
-    console.log('ici');
     return new Promise<Array<Flux>>((resolve, reject) => {
       this.storage.get('Flux').then(
         data => {
-          console.log(data);
-          resolve(JSON.parse(data));
+          let temp = JSON.parse(data) || Array<Flux>(0);
+          resolve(temp);
         },
         error => {
           reject(error);

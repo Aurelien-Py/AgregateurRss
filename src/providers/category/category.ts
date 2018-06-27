@@ -83,12 +83,11 @@ export class CategoryProvider {
    * @memberof CategoryProvider
    */
   getAll(){
-    console.log('ici');
     return new Promise<Array<Category>>((resolve, reject) => {
       this.storage.get('Category').then(
         data => {
-          console.log(data);
-          resolve(JSON.parse(data));
+          let temp = JSON.parse(data) || Array<Category>(0);
+          resolve(temp);
         },
         error => {
           reject(error);

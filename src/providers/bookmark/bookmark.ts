@@ -112,8 +112,8 @@ export class BookmarkProvider {
     return new Promise<Array<Bookmark>>((resolve, reject) => {
       this.storage.get('Bookmark').then(
         data => {
-          console.log(data);
-          resolve(JSON.parse(data));
+          let temp = JSON.parse(data) || Array<Bookmark>(0);
+          resolve(temp);
         },
         error => {
           reject(error);
