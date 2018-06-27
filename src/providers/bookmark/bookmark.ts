@@ -161,8 +161,14 @@ export class BookmarkProvider {
 
     return res;
   }
-
-  alreadyExist(f: Feed){
+/**
+ *  Verifie si un feed est deja enregistre ou non
+ * 
+ * @param {Feed} f
+ * @returns {boolean}
+ * @memberof BookmarkProvider
+ */
+alreadyExist(f: Feed){
     return this.getByFeed(f) !== null;
   }
 
