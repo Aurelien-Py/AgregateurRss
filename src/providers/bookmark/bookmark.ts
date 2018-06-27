@@ -36,7 +36,7 @@ export class BookmarkProvider {
    */
   add(b: Bookmark){
     let res: boolean = false;
-    if(!this.alreadyExist(b)){
+    if(!this.alreadyExist(b.feed)){
       this.listBookmark.push(b);
       this.save();
       res = true;
@@ -138,8 +138,8 @@ export class BookmarkProvider {
     return res;
   }
 
-  alreadyExist(b: Bookmark){
-    return this.getByFeed(b.feed) !== null;
+  alreadyExist(f: Feed){
+    return this.getByFeed(f) !== null;
   }
 
 }
