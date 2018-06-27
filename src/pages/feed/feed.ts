@@ -97,6 +97,16 @@ export class FeedPage {
     });
     toast.present();
     }
+
+  testFav(){
+    console.log(this.bookmark.alreadyExist(this.feed));
+    if (this.bookmark.alreadyExist(this.feed)){
+      this.supprFav();
+    }
+    else {
+      this.saveFav();
+    }
+    }
   }
 
 
