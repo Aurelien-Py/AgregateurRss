@@ -14,6 +14,12 @@ export class FluxProvider {
 
   public listFlux = Array<Flux>(0);
 
+  /**
+   *Creates an instance of FluxProvider.
+  * @param {HttpClient} http
+  * @param {Storage} storage
+  * @memberof FluxProvider
+  */
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello FluxProvider Provider');
     this.storage.get('Flux').then(
@@ -27,11 +33,30 @@ export class FluxProvider {
     );
   }
 
+  /**
+   * Fonction qui sert a ajouter un flux a l'environnement
+   *
+   * @param {Flux} f
+   * @returns boolean : indique son succes
+   * @memberof FluxProvider
+   */
   add(f: Flux){
-    this.listFlux.push(f);
-    this.save();
+    let res: boolean = false;
+    if(!this.alreadyExist(f)){
+      this.listFlux.push(f);
+      this.save();
+      res = true;
+    }
+    return res;
   }
 
+
+  /**
+   * Fonction qui sert a supprimer un flux de l'environnement
+   *
+   * @param {number} id
+   * @memberof FluxProvider
+   */
   remove(id: number){
     for(let i = 0; i < this.listFlux.length; i++){
       if(this.listFlux[i].id === id){
@@ -42,14 +67,32 @@ export class FluxProvider {
     }
   }
 
+  /**
+   *  Fonction qui sauvegarde la liste des flux dans la base du smartphone
+   *
+   * @memberof FluxProvider
+   */
   save(){
     this.storage.set('Flux', JSON.stringify(this.listFlux));
   }
 
+
+  /**
+   *  Fonction qui supprime tous les elements de la base
+   *
+   * @memberof FluxProvider
+   */
   clean(){
     this.storage.clear();
   }
 
+
+  /**
+   *
+   *
+   * @returns
+   * @memberof FluxProvider
+   */
   getAll(){
     console.log('ici');
     return new Promise<Array<Flux>>((resolve, reject) => {
@@ -65,6 +108,33 @@ export class FluxProvider {
     });
   }
 
+  /**
+   *
+   *
+   * @param {Flux} f
+   * @returns
+   * @memberof FluxProvider
+   */
+  alreadyExist(f: Flux){
+    let res: boolean = false;
+
+    for(let i = 0; i < this.listFlux.length; i++){
+      if(this.listFlux[i].title === f.title || this.listFlux[i].link === f.link){
+        res = true;
+        break;
+      }
+    }
+
+    return res;
+  }
+
+  /**
+   *
+   *
+   * @param {number} id
+   * @returns
+   * @memberof FluxProvider
+   */
   getById(id: number){
     let res: Flux = null;
 

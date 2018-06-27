@@ -28,8 +28,13 @@ export class CategoryProvider {
   }
 
   add(c: Category){
-    this.listCategory.push(c);
-    this.save();
+    let res: boolean = false;
+    if(!this.alreadyExist(c)){
+      this.listCategory.push(c);
+      this.save();
+      res = true;
+    }
+    return res;
   }
 
   remove(id: number){
@@ -89,6 +94,10 @@ export class CategoryProvider {
     }
 
     return res;
+  }
+
+  alreadyExist(c: Category){
+    return this.getByTitle(c.title) !== null;
   }
 
 

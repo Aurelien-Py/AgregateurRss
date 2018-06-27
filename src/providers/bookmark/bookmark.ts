@@ -29,8 +29,13 @@ export class BookmarkProvider {
   }
 
   add(b: Bookmark){
-    this.listBookmark.push(b);
-    this.save();
+    let res: boolean = false;
+    if(!this.alreadyExist(b)){
+      this.listBookmark.push(b);
+      this.save();
+      res = true;
+    }
+    return res;
   }
 
   remove(id: number){
@@ -89,6 +94,10 @@ export class BookmarkProvider {
     }
 
     return res;
+  }
+
+  alreadyExist(b: Bookmark){
+    return this.getByFeed(b.feed) !== null;
   }
 
 }
