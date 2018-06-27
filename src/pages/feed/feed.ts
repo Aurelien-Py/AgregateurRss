@@ -24,7 +24,7 @@ export class FeedPage {
   public listImages = [ 'assets/imgs/Image1.jpg', 'assets/imgs/Image2.jpg','assets/imgs/Image3.jpg','assets/imgs/Image4.jpg'];
   public image: string;
   public listBookmarks = Array<Bookmark>(0);
-
+  public status: number;
   constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, private storage: Storage, public bookmark: BookmarkProvider ) {
     this.feed = navParams.get('feed');
     this.randomImage(this.feed);
@@ -36,16 +36,20 @@ export class FeedPage {
 
   /**
    * Ouvrir une nouvelle fenêtre avec le lien du feed
+   * 
    * @param feed
+   * @memberof FeedPage
    * */
-  
+
   openlink(feed: Feed){
     window.open(feed.link);
   }
 
   /**
    * Choisit une image aléatoire dans "assets/imgs" si le feed n'en communique pas
+   * 
    * @param feed
+   * @memberof FeedPage
    * */
 
   randomImage(feed: Feed) {
@@ -62,6 +66,8 @@ export class FeedPage {
 
   /**
    * Ajouter ce feed a la liste de bookmark et affiche un message de confirmation pendant 2 sec
+   * 
+   * @memberof FeedPage
    * */
 
   saveFav(){
@@ -75,6 +81,24 @@ export class FeedPage {
   });
   toast.present();
   }
-}
+  
+  /**
+   * Supprimer ce feed a la liste de bookmark et affiche un message de confirmation pendant 2 sec
+   * 
+   * @memberof FeedPage
+   */
+
+  supprFav(){
+    console.log("jojo");
+    this.bookmark.remove(this.feed.id);
+    let toast = this.toastCtrl.create({
+      message: 'Flux supprimé des favoris',
+      duration: 2000,
+      position: 'top'
+     
+    });
+    toast.present();
+    }
+  }
 
 
