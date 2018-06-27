@@ -1,4 +1,8 @@
+//YE_BA
+
 import { Component } from '@angular/core';
+//import { Flux } from '../../models/Flux/flux';
+
 
 /**
  * Generated class for the ListFluxComponent component.
@@ -12,7 +16,7 @@ import { Component } from '@angular/core';
 })
 export class ListFluxComponent {
 
-  text: string;
+  //text: string;
 
   constructor() {
     console.log('Hello ListFluxComponent Component');
@@ -20,3 +24,6 @@ export class ListFluxComponent {
   }
 
 }
+
+//YE_EA
+
