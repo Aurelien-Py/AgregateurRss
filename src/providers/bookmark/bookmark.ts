@@ -151,7 +151,6 @@ export class BookmarkProvider {
    */
   getByFeed(f: Feed){
     let res: Bookmark = null;
-    console.log(this.listBookmark);
 
     for(let i = 0; i < this.listBookmark.length; i++){
       if(this.listBookmark[i].feed.id === f.id){

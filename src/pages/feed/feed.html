@@ -6,31 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ feed.flux.title }}</ion-title>
-    <ion-buttons end>
-        <button ion-button icon-only color="light" (click)= "testFav()"> 
-            <ion-icon name="star"></ion-icon>
+    <ion-navbar>
+        <ion-title>{{ feed.flux.title }}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only color="light" (click)="testFav()"> 
+            <ion-icon *ngIf="alreadyExist()" name="star"></ion-icon>
+            <ion-icon *ngIf="!alreadyExist()" name="star-outline"></ion-icon>
           </button>
         </ion-buttons>
-  </ion-navbar>
+    </ion-navbar>
 
-  
+
 </ion-header>
 
 <ion-content>
-  <img style="width:100%;" src= "{{image}}"  >
-  <br>
-  <div class="title" style="text-align: center; font-size: 20px;"> {{feed.title}} </div> 
-  <br>
-  <div margin-left style="color: rgb(201, 183, 183)">{{ feed.pubDate }}</div>
-  <br>
-  <div *ngIf="feed.description.length > 0" margin-left margin-right text-justify>Description : <br> {{ feed.description | StripHtmlTagsPipe }}</div>
-  <br>
+    <img style="width:100%;" src="{{image}}">
+    <br>
+    <div class="title" style="text-align: center; font-size: 20px;"> {{feed.title}} </div>
+    <br>
+    <div margin-left style="color: rgb(201, 183, 183)">{{ feed.pubDate }}</div>
+    <br>
+    <div *ngIf="feed.description.length > 0" margin-left margin-right text-justify>Description : <br> {{ feed.description | StripHtmlTagsPipe }}</div>
+    <br>
 </ion-content>
 
 <ion-footer>
-    <button ion-button (click)="openlink(feed)"  block>  
+    <button ion-button (click)="openlink(feed)" block>  
         link
       </button>
 </ion-footer>

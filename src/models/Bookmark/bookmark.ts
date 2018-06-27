@@ -5,7 +5,7 @@ import { Md5 } from 'ts-md5';
  * Bookmark
  * 
  * Classe qui sert a modeliser un article mis en favoris 
- *  id: number
+ *  id: string
  *  feed: Feed
  * 
  */
