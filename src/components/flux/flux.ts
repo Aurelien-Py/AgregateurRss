@@ -1,28 +1,23 @@
-//YE_BA
-
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { FluxProvider } from '../../providers/flux/flux';
 import { ModalController, Modal  } from 'ionic-angular';
-
-
-//import { Flux } from '../../models/Flux/flux';
+import { Flux } from '../../models/Flux/flux';
 
 
 /**
- * Generated class for the ListFluxComponent component.
+ * Generated class for the FluxComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'list-flux',
-  templateUrl: 'list-flux.html'
+  selector: 'flux',
+  templateUrl: 'flux.html'
 })
-export class ListFluxComponent {
+export class FluxComponent {
 
- 
-  @Input() ListFluxComponent: ListFluxComponent;
+  @Input() flux: Flux;
 
   constructor(private fluxP : FluxProvider, private modal: ModalController) {
     console.log('Hello ListFluxComponent Component');
@@ -38,6 +33,3 @@ export class ListFluxComponent {
     }
 
 }
-
-//YE_EA
-

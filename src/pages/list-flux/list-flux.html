@@ -28,11 +28,14 @@
 
 
 <ion-content padding="true">
-  <ion-list *ngFor= 'let flux of ListFlux' >
-      <flux (click)="goToListFluxPage(ListFlux)" [ListFlux]='ListFlux'></flux>
+  <ion-list>
+    <div *ngFor= 'let flux of ListFlux' >
+      <flux (click)="goToListFluxPage(flux)" [flux]='flux'></flux>
       <!-- <p>{{flux.title}}</p> -->
+    </div>
   </ion-list>
 </ion-content>
+
 
 
 <!-- YE_EA -->

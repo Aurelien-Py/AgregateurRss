@@ -9,6 +9,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { FeedComponent } from '../components/feed/feed';
 import { CategoryComponent } from './../components/category/category';
 
+import { FluxComponent } from './../components/flux/flux';
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -40,6 +42,7 @@ import { CategoryProvider } from '../providers/category/category';
     ListFluxPage,
     //YE_EA
     BookmarksPage,
+    FluxComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { CategoryProvider } from '../providers/category/category';
     CategoriesPage,
     //YE_BA
     ListFluxPage,
+    FluxComponent,
     //YE_EA
     BookmarksPage,
   ],
