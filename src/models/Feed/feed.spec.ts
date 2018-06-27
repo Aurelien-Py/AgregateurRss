@@ -17,13 +17,23 @@ describe('Models: Feed', () => {
 
     });
 
-    it('increase id', () => {
+    it('Same id', () => {
+        let c: Category = new Category('testCategory','color');
+        let fl: Flux = new Flux('test','test.fr',c);
+        let f: Feed = new Feed('Test','test.fr/test','lalalilalala', new Date(),'',fl);
+        let f2: Feed = new Feed('Test','test.fr/test','lalalilalala', new Date(),'',fl);
+
+        expect(f2.id).toEqual(f.id);
+
+    });
+
+    it('Different id', () => {
         let c: Category = new Category('testCategory','color');
         let fl: Flux = new Flux('test','test.fr',c);
         let f: Feed = new Feed('Test','test.fr/test','lalalilalala', new Date(),'',fl);
         let f2: Feed = new Feed('Test2','test.fr/test2','lalalilalala2', new Date(),'',fl);
 
-        expect(f2.id).toBeGreaterThan(f.id);
+        expect(f2.id).not.toEqual(f.id);
 
     });
 
