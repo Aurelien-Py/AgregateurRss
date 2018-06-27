@@ -28,16 +28,28 @@ export class CategoriesPage {
     })
   }
 
-  ionViewDidLoad() {
+  
+ionViewDidLoad() {
     console.log('ionViewDidLoad CategoriesPage');
   }
 
-  openModal(){
+/**
+ *Fonction permettant l'ouverture d'un modal pour la création d'une nouvelle catégorie
+ *
+ * @memberof CategoriesPage
+ */
+openModal(){
     const modalAddFlux : Modal = this.modal.create('ModalAddingCategoryPage');
     modalAddFlux.present();
   }
-
-  goToCategoryPage(category: Category){
+  
+/**
+ *Fonction permettant d'accéder à la page de la catégorie
+ *
+ * @param {Category} category
+ * @memberof CategoriesPage
+ */
+goToCategoryPage(category: Category){
     this.navCtrl.push(CategoriesPage, {'category' : category});
   }
 

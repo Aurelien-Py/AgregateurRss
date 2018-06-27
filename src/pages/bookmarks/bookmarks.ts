@@ -44,7 +44,9 @@ export class BookmarksPage {
    * Permet d'afficher la la page Feed avec image, titre, description, date et un accès au lien du site
    * 
    * @param feed 
+   * @memberof BookmarksPage
    */
+
   goToFeedPage(feed: Feed){
     this.navCtrl.push(FeedPage, {'feed' : feed});
   }
@@ -52,6 +54,14 @@ export class BookmarksPage {
   ngAfterViewInit(){
     this.doRefresh(null);
   }
+
+  /**
+   * Fonction permettant de recharger la page
+   * 
+   * @param refresher
+   * @memberof BookmarksPage
+   */
+
 
   doRefresh(refresher){
     this.listBookmarks = Array<Bookmark>(0);

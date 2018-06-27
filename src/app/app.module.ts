@@ -12,9 +12,8 @@ import { CategoryComponent } from './../components/category/category';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { FeedPage } from '../pages/feed/feed';
-import {CategoriesPage} from '../pages/categories/categories';
+import { CategoriesPage } from '../pages/categories/categories';
 // YE_BA
 import { ListFluxPage } from '../pages/list-flux/list-flux';
 // YE_EA
@@ -33,7 +32,6 @@ import { CategoryProvider } from '../providers/category/category';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     FeedComponent,
     CategoryComponent,
     FeedPage,
@@ -54,7 +52,6 @@ import { CategoryProvider } from '../providers/category/category';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     FeedComponent,
     CategoryComponent,
     FeedPage,

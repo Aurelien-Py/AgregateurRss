@@ -26,12 +26,28 @@ export class CategoryProvider {
       }
     );
   }
-
+  /**
+   *Fonction permettant d'ajouter une catégorie à la liste des favoris
+   *
+   * @param {Category} c
+   * @memberof CategoryProvider
+  */
   add(c: Category){
-    this.listCategory.push(c);
-    this.save();
+    let res: boolean = false;
+    if(!this.alreadyExist(c)){
+      this.listCategory.push(c);
+      this.save();
+      res = true;
+    }
+    return res;
   }
 
+  /**
+   *Fonction permettant de supprimer une catégorie de la liste des cat"gories
+   *
+   * @param {number} id
+   * @memberof CategoryProvider
+  */
   remove(id: number){
     for(let i = 0; i < this.listCategory.length; i++){
       if(this.listCategory[i].id === id){
@@ -42,14 +58,30 @@ export class CategoryProvider {
     }
   }
 
+  /**
+   *Fonction permettant d'enregistrer en base téléphone la liste des catégories
+   *
+   * @memberof CategoryProvider
+   */
   save(){
     this.storage.set('Category', JSON.stringify(this.listCategory));
   }
 
+  /**
+   *Fonction permettant de supprimer en base téléphone la liste des catégories
+   *
+   * @memberof CategoryProvider
+   */
   clean(){
     this.storage.clear();
   }
 
+  /**
+   *Fonction retournant la liste des catégories
+   *
+   * @returns Promise<Array<Category>>
+   * @memberof CategoryProvider
+   */
   getAll(){
     console.log('ici');
     return new Promise<Array<Category>>((resolve, reject) => {
@@ -65,6 +97,13 @@ export class CategoryProvider {
     });
   }
 
+  /**
+   *Fonction retournant une catégorie selon son id
+   *
+   * @param {number} id
+   * @returns Category
+   * @memberof CategoryProvider
+   */
   getById(id: number){
     let res: Category = null;
 
@@ -78,6 +117,13 @@ export class CategoryProvider {
     return res;
   }
 
+  /**
+   *Fonction retournant une catégorie selon son titre
+   *
+   * @param {string} title
+   * @returns Category
+   * @memberof CategoryProvider
+   */
   getByTitle(title: string){
     let res: Category = null;
 
@@ -89,6 +135,10 @@ export class CategoryProvider {
     }
 
     return res;
+  }
+
+  alreadyExist(c: Category){
+    return this.getByTitle(c.title) !== null;
   }
 
 

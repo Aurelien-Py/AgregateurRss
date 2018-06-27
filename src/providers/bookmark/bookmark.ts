@@ -28,11 +28,28 @@ export class BookmarkProvider {
     );
   }
 
+  /**
+   *Fonction permettant d'ajouter un article à la liste des favoris
+   *
+   * @param {Bookmark} b
+   * @memberof BookmarkProvider
+   */
   add(b: Bookmark){
-    this.listBookmark.push(b);
-    this.save();
+    let res: boolean = false;
+    if(!this.alreadyExist(b.feed)){
+      this.listBookmark.push(b);
+      this.save();
+      res = true;
+    }
+    return res;
   }
 
+  /**
+   *Fonction permettant de retirer un article de la liste des favoris
+   *
+   * @param {number} id
+   * @memberof BookmarkProvider
+   */
   remove(id: number){
     for(let i = 0; i < this.listBookmark.length; i++){
       if(this.listBookmark[i].id === id){
@@ -43,14 +60,30 @@ export class BookmarkProvider {
     }
   }
 
+  /**
+   *Fonction permettant d'enregistrer en base mémoire téléphone la liste des favoris
+   *
+   * @memberof BookmarkProvider
+   */
   save(){
     this.storage.set('Bookmark', JSON.stringify(this.listBookmark));
   }
 
+  /**
+   *Fonction permettant d'effacer de la base mémoire téléphone la liste des favoris
+   *
+   * @memberof BookmarkProvider
+   */
   clean(){
     this.storage.clear();
   }
 
+  /**
+   *Fontion retournant la liste des favoris
+   *
+   * @returns Promise<Array<Bookmark>>
+   * @memberof BookmarkProvider
+   */
   getAll(){
     return new Promise<Array<Bookmark>>((resolve, reject) => {
       this.storage.get('Bookmark').then(
@@ -65,6 +98,13 @@ export class BookmarkProvider {
     });
   }
 
+  /**
+   *Fonction retournant un article favori selon son id
+   *
+   * @param {number} id
+   * @returns Bookmark
+   * @memberof BookmarkProvider
+   */
   getById(id: number){
     let res: Bookmark = null;
 
@@ -78,6 +118,13 @@ export class BookmarkProvider {
     return res;
   }
 
+  /**
+   *Fonction retournant un article favori selon selon son Feed
+   *
+   * @param {Feed} f
+   * @returns Bookmark
+   * @memberof BookmarkProvider
+   */
   getByFeed(f: Feed){
     let res: Bookmark = null;
 
@@ -89,6 +136,10 @@ export class BookmarkProvider {
     }
 
     return res;
+  }
+
+  alreadyExist(f: Feed){
+    return this.getByFeed(f) !== null;
   }
 
 }
