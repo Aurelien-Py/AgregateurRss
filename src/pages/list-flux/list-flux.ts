@@ -27,8 +27,11 @@ export class ListFluxPage {
     this.ListFlux = Array<Flux>(0) ;
     this.FluxP.getAll().then(data =>{
       this.ListFlux = data ;
+    },
+    error => {
+      console.log("Error while loading Flux List");
     } );
-  
+
   }
 
   ionViewDidLoad() {
@@ -38,6 +41,10 @@ export class ListFluxPage {
   openModal(){
     const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
     modalAddFlux.present();
+  }
+
+  goToListFluxPage(ListFlux: Flux){
+    this.navCtrl.push(ListFluxPage, {'Flux' : Flux});
   }
 
 }
