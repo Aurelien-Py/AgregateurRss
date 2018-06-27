@@ -20,7 +20,7 @@ export class ListFluxComponent {
 
   constructor() {
     console.log('Hello ListFluxComponent Component');
-    this.text = 'Hello World';
+    //this.text = 'Hello World';
   }
 
 }
