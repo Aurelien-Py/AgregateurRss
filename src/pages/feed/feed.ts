@@ -21,7 +21,7 @@ export class FeedPage {
 
   public feed: Feed;
   public nombre: number;
-  public listImages = [ 'assets/imgs/Image1.jpg', 'assets/imgs/Image2.jpg','assets/imgs/Image3.jpg','assets/imgs/Image4.jpg'];
+  public listImages = [ 'assets/imgs/Image0.jpg', 'assets/imgs/Image1.jpg','assets/imgs/Image2.jpg'];
   public image: string;
   public listBookmarks = Array<Bookmark>(0);
 
