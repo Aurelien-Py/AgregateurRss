@@ -38,9 +38,9 @@ import { CategoryProvider } from '../providers/category/category';
     CategoriesPage,
     //YE_BA
     ListFluxPage,
+    FluxComponent,
     //YE_EA
     BookmarksPage,
-    FluxComponent,
   ],
   imports: [
     BrowserModule,

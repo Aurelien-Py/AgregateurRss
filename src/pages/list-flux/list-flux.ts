@@ -27,7 +27,11 @@ export class ListFluxPage {
   ListFlux: Array<Flux> ;
   subscription: Subscription;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public FluxP: FluxProvider, private modal: ModalController) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public FluxP: FluxProvider, 
+              private modal: ModalController, 
+              ) {
     this.ListFlux = Array<Flux>(0) ;
     this.FluxP.getAll().then(data =>{
       this.ListFlux = data ;
@@ -49,6 +53,26 @@ export class ListFluxPage {
   openModal(){
     const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
     modalAddFlux.present();
+  }
+
+  ngAfterViewInit(){
+    this.doRefresh(null);
+  }
+
+  doRefresh(refresher){
+    this.ListFlux = Array<Flux>(0);
+    this.FluxP.getAll().then(
+      data => {
+        console.log(data);
+        this.ListFlux = data;
+        if(refresher !== null){
+          refresher.complete();
+        }
+      },
+      error => {
+
+      }
+    )    
   }
 
 }
