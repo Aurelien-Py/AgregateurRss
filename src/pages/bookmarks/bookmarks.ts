@@ -22,7 +22,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class BookmarksPage {
 
   public listBookmarks = Array<Bookmark>(0);
-  private subscription: Subscription;
+  public subscription: Subscription;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewC: ViewController, public http: HttpClient, public bookmark: BookmarkProvider) {
     
@@ -33,7 +33,7 @@ export class BookmarksPage {
       error => {
         console.log("Error while loading bookmarks");
       }
-    )
+    );
 
     this.subscription = this.bookmark.getListBookmark().subscribe( data => {
       this.listBookmarks = data;

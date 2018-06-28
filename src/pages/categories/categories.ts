@@ -1,4 +1,3 @@
-import { ListFluxPage } from './../list-flux/list-flux';
 import { Component } from '@angular/core';
 import { CategoryProvider } from './../../providers/category/category';
 import { IonicPage, NavController, NavParams, ModalController, Modal  } from 'ionic-angular';
@@ -24,21 +23,23 @@ export class CategoriesPage {
   subscription: Subscription;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modal: ModalController,  public categoryP: CategoryProvider) {
+    
+  }
+
+  
+ionViewDidLoad() {
+    console.log('ionViewDidLoad CategoriesPage');
     this.categories = Array<Category>(0);
     console.log(this.categories);
     this.categoryP.getAll().then(data => {
       this.categories = data;
+      console.log(data);
     });
 
     this.subscription = this.categoryP.getListCategory().subscribe( data => {
       this.categories = data;
       console.log(data);
     });
-  }
-
-  
-ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriesPage');
   }
 
 /**

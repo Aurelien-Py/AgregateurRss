@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Feed } from '../../models/Feed/feed';
 import { BookmarkProvider } from '../../providers/bookmark/bookmark';
 import { Bookmark } from '../../models/Bookmark/bookmark';
-import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the FeedPage page.
@@ -25,7 +24,7 @@ export class FeedPage {
   public image: string;
   public listBookmarks = Array<Bookmark>(0);
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, private storage: Storage, public bookmark: BookmarkProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, public bookmark: BookmarkProvider ) {
     this.feed = navParams.get('feed');
     this.randomImage(this.feed);
   }

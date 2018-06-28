@@ -23,11 +23,6 @@ export class HomePage implements AfterViewInit, OnInit {
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider, private modal: ModalController, public category: CategoryProvider) {
     this.feeds = Array<Feed>(0);
     console.log(this.feeds);
-
-    this.subscription = this.flux.getListFlux().subscribe( data => {
-      this.doRefresh(null);
-    });
-
   }
 
   /**
@@ -60,6 +55,10 @@ export class HomePage implements AfterViewInit, OnInit {
     this.loading = true;
     
     this.doRefresh(null);
+
+    this.subscription = this.flux.getListFlux().subscribe( data => {
+      this.doRefresh(null);
+    });
   }
 
   /**
@@ -68,7 +67,7 @@ export class HomePage implements AfterViewInit, OnInit {
    * @param {*} refresher
    * @memberof HomePage
    */
-  doRefresh(refresher){
+  async doRefresh(refresher){
     this.feeds = Array<Feed>(0);
     this.flux.getAll().then(
       data => {
@@ -85,6 +84,7 @@ export class HomePage implements AfterViewInit, OnInit {
                   res.push(new Feed(temp['title'],temp['link'],temp['description'],temp['pubDate'],temp['thumbnail'] ,element));
                 }
               }
+              
               this.feeds = this.feeds.concat(res);
 
               this.feeds.sort((b,a) => {
@@ -98,7 +98,8 @@ export class HomePage implements AfterViewInit, OnInit {
                 }
 
                 return res;
-              })
+              });
+
               this.loading = false;
               console.log(this.feeds);
               if(refresher !== null){
