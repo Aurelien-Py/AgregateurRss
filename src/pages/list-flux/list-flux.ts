@@ -7,8 +7,8 @@ import { IonicPage, NavController, NavParams, ModalController, Modal } from 'ion
 import { FluxProvider } from "../../providers/flux/flux";
 import { Flux } from "../../models/Flux/flux";
 
-import { ChangeDetectorRef } from '@angular/core'; 
 
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Generated class for the ListFluxPage page.
@@ -25,12 +25,13 @@ import { ChangeDetectorRef } from '@angular/core';
 export class ListFluxPage {
 
   ListFlux: Array<Flux> ;
+  subscription: Subscription;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public FluxP: FluxProvider, 
               private modal: ModalController, 
-              public cd: ChangeDetectorRef) {
+              ) {
     this.ListFlux = Array<Flux>(0) ;
     this.FluxP.getAll().then(data =>{
       this.ListFlux = data ;
@@ -39,8 +40,9 @@ export class ListFluxPage {
       console.log("Error while loading Flux List");
     } );
 
-    //refresh the page after a change
-    //this.cd.detectChanges();
+    this.subscription = this.FluxP.getListFlux().subscribe( data => {
+      this.ListFlux = data;
+    });
 
   }
 

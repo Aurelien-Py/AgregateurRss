@@ -90,12 +90,12 @@ export class FluxProvider {
 
 
   /**
-   *  Fonction qui supprime tous les elements de la base
+   *  Fonction qui supprime tous les elements Flux de la base
    *
    * @memberof FluxProvider
    */
   clean(){
-    this.storage.clear();
+    this.storage.remove('Flux');
   }
 
   /**

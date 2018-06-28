@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, Toast} from 'ionic-angular';
 import { Category } from '../../models/Category/category';
 import { CategoryProvider } from '../../providers/category/category';
 import { ToastController } from 'ionic-angular';
@@ -23,6 +23,8 @@ export class ModalAddingCategoryPage {
   colorCategory: string;
 
   constructor(public navCtrl: NavController,  private toastCtrl: ToastController, public navParams: NavParams, public category: CategoryProvider, public viewC: ViewController) {
+    this.titleCategory = "";
+    this.colorCategory = "#000000";
   }
 
   ionViewDidLoad() {
@@ -33,23 +35,57 @@ export class ModalAddingCategoryPage {
  *
  * @memberof ModalAddingCategoryPage
  */
-closeModal(){
+  closeModal(){
     this.viewC.dismiss(); 
   }
+
+  /**
+ *Fonction permettant de créer une catégorie avec son nom et sa couleur
+ *
+ * @memberof ModalAddingCategoryPage
+ */
+  controlCategory(){
+    if (!(this.titleCategory === "")){
+      this.createCategory();
+    }
+    else{
+      let toast = this.toastCtrl.create({
+        message: 'Catégorie sans nom',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
+    
+  }
+
+
+
 /**
  *Fonction permettant de créer une catégorie avec son nom et sa couleur
  *
  * @memberof ModalAddingCategoryPage
  */
-createCategory(){
-  
-    this.category.add(new Category(this.titleCategory,this.colorCategory.replace('#','')));
-    this.closeModal();
-    let toast = this.toastCtrl.create({
-      message: 'Catégorie créée',
-      duration: 3000,
-      position: 'top'
-    });
-    toast.present();
+  createCategory(){
+      let cat:Category = new Category(this.titleCategory,this.colorCategory.replace('#',''));
+      if(!this.category.alreadyExist(cat)){
+        this.category.add(cat);
+        this.closeModal();
+        let toast = this.toastCtrl.create({
+          message: 'Catégorie créée',
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+      }
+      else{
+        let toast = this.toastCtrl.create({
+        message: 'Catégorie déjà existante',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }    
   }
 }
+
