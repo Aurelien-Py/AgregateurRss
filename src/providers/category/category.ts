@@ -85,7 +85,7 @@ export class CategoryProvider {
    * @memberof CategoryProvider
    */
   clean(){
-    this.storage.clear();
+    this.storage.remove("Category");
   }
 
   /**

@@ -110,7 +110,7 @@ export class BookmarkProvider {
    * @memberof BookmarkProvider
    */
   clean(){
-    this.storage.clear();
+    this.storage.remove("Bookmark");
   }
 
   /**
