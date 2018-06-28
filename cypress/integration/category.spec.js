@@ -35,7 +35,17 @@ describe('Category Page', () => {
         cy.contains('Programmation');
         cy.wait(1000);
         cy.contains('Cancel').click();
-        cy.get('.bar-button-end').click();
+        cy.get('.bar-button-clear').eq(1).click();
+        cy.get('.bar-button-menutoggle').click();
+        cy.get('.menu-inner').should('be.visible');
+        cy.get('.item-inner').should('be.visible');
+        cy.contains('Liste flux').click();
+        cy.contains('Journal du Hacker');
+        cy.contains('Korben');
+        cy.contains('Marmiton');
+        cy.wait(1000);
+        cy.get('.bar-button-clear').click();
+        cy.get('.item-cover').click();
 
     });
 
@@ -50,4 +60,13 @@ describe('Category Page', () => {
         .trigger('mousemove', {which: 1, pageX: 100, pageY: 100})
         .trigger('mouseup')
     });*/
+    
+    it('refresh page', () =>{
+        cy.get('.ion-page')
+        .trigger('mousedown', {which: 1, pageX: 600, pageY: 100})
+        .trigger('mousemove', {which: 1, pageX: 600, pageY: 600})
+        .trigger('mouseup')
+        });
+
+
 });
