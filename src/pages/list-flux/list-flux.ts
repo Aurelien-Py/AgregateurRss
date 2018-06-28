@@ -50,14 +50,29 @@ export class ListFluxPage {
     console.log('ionViewDidLoad ListFluxPage');
   }
 
+/**
+ *Fonction permettant l'ouverture d'un modal pour la création d'une nouvelle catégorie
+ *
+ * @memberof CategoriesPage
+ */
+
   openModal(){
     const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
     modalAddFlux.present();
   }
 
+
+
   ngAfterViewInit(){
     this.doRefresh(null);
   }
+
+  /**
+   * Fonction permettant de recharger la page
+   * 
+   * @param refresher
+   * @memberof BookmarksPage
+   */
 
   doRefresh(refresher){
     this.ListFlux = Array<Flux>(0);
