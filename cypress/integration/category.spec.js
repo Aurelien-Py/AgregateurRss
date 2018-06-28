@@ -5,7 +5,7 @@ describe('Category Page', () => {
 
  
 
-    /*it('click on hamburger and Catégorie', () => {
+    it('click on hamburger and Catégorie', () => {
         cy.get('.bar-button-menutoggle').click();
         cy.get('.menu-inner').should('be.visible');
         cy.get('.item-inner').should('be.visible');
@@ -37,7 +37,7 @@ describe('Category Page', () => {
         cy.contains('Cancel').click();
         cy.get('.bar-button-end').click();
 
-    });*/
+    });
 
     it('Suppr category', () =>{
         cy.get('.bar-button-menutoggle').click();
