@@ -8,7 +8,7 @@
 
     <ion-navbar>
         <ion-title>{{ feed.flux.title }}</ion-title>
-        <ion-buttons end>
+        <ion-buttons id="btnFavoris" end>
             <button ion-button icon-only color="light" (click)="testFav()"> 
             <ion-icon *ngIf="alreadyExist()" name="star"></ion-icon>
             <ion-icon *ngIf="!alreadyExist()" name="star-outline"></ion-icon>

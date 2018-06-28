@@ -13,6 +13,13 @@ describe('List-flux Page', () => {
         cy.contains('Journal du Hacker');
         cy.contains('Korben');
         cy.contains('Marmiton');
+        cy.get('.bar-button-clear').click();
     });
+
+    it('Add flux', () => {
+        cy.get('.bar-button-clear').click();
+    });
+
+    
 
 });
