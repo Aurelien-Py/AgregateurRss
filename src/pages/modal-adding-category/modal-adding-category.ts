@@ -40,7 +40,7 @@ export class ModalAddingCategoryPage {
   }
 
   /**
- *Fonction permettant de créer une catégorie avec son nom et sa couleur
+ *Fonction permettant de contrôler le nom renseigné à la création d'une catégorie
  *
  * @memberof ModalAddingCategoryPage
  */

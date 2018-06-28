@@ -27,6 +27,9 @@ export class ModalAddingFluxPage {
   listCategories: Array<Category>;
 
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams, public flux: FluxProvider,public viewC: ViewController, public category: CategoryProvider) {
+    this.nameFlux = null;
+    this.addressFlux = null;
+    this.categoryFlux = null;
     this.category.getAll().then(
       data => {
         this.listCategories = data;
@@ -50,20 +53,52 @@ export class ModalAddingFluxPage {
     this.viewC.dismiss(); 
   }
 
+/**
+ *Fonction permettant de vérifier les paramètres de création du flux
+ *
+ * @memberof ModalAddingFluxPage
+ */
+controlFlux(){
+  var regexUrl = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+  if (!(this.nameFlux == null || this.categoryFlux == null || this.addressFlux == null || !regexUrl.test(this.addressFlux))){
+    this.addFlux();
+  }
+  else{
+    let toast = this.toastCtrl.create({
+      message: 'Erreur dans la saisie des paramètres',
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+  
+}
+
   /**
    *Fonction permettant d'ajouter un flux avec son nom, son adresse et sa catégorie
    *
    * @memberof ModalAddingFluxPage
    */
   addFlux(){
-    this.flux.add(new Flux(this.nameFlux,this.addressFlux, this.categoryFlux));
-    this.closeModal();
-    let toast = this.toastCtrl.create({
-      message: 'Flux ajouté',
-      duration: 3000,
-      position: 'top'
-    });
-    toast.present();
+    let f:Flux = new Flux(this.nameFlux,this.addressFlux, this.categoryFlux);
+    if(!this.flux.alreadyExist(f)){
+      this.flux.add(f);
+      this.closeModal();
+      let toast = this.toastCtrl.create({
+        message: 'Flux ajouté',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
+    else{
+      let toast = this.toastCtrl.create({
+        message: 'Flux déjà existant',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
   }
 
 }
