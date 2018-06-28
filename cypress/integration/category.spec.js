@@ -39,15 +39,15 @@ describe('Category Page', () => {
 
     });
 
-    it('Suppr category', () =>{
+    /*it('Suppr category', () =>{
         cy.get('.bar-button-menutoggle').click();
         cy.get('.menu-inner').should('be.visible');
         cy.get('.item-inner').should('be.visible');
         cy.contains('Catégorie').click();
         cy.wait(1000);
-        /*cy.get('.ion-page')
+        cy.get('.ion-page')
         .trigger('mousedown', {which: 1, pageX: 600, pageY: 100})
         .trigger('mousemove', {which: 1, pageX: 100, pageY: 100})
-        .trigger('mouseup')*/
-    });
+        .trigger('mouseup')
+    });*/
 });
