@@ -28,6 +28,9 @@
 
 
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
     <ion-list>
         <div *ngFor='let flux of ListFlux'>
             <flux [flux]='flux'></flux>
