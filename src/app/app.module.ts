@@ -22,8 +22,6 @@ import { ListFluxPage } from '../pages/list-flux/list-flux';
 
 import {BookmarksPage} from '../pages/bookmarks/bookmarks';
 
-import { StripHtmlTagsPipe } from '../pipes/strip-html-tags/strip-html-tags';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FluxProvider } from '../providers/flux/flux';
