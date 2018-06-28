@@ -7,6 +7,9 @@ import { IonicPage, NavController, NavParams, ModalController, Modal } from 'ion
 import { FluxProvider } from "../../providers/flux/flux";
 import { Flux } from "../../models/Flux/flux";
 
+
+import { Subscription } from 'rxjs/Subscription';
+
 /**
  * Generated class for the ListFluxPage page.
  *
@@ -22,6 +25,7 @@ import { Flux } from "../../models/Flux/flux";
 export class ListFluxPage {
 
   ListFlux: Array<Flux> ;
+  subscription: Subscription;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public FluxP: FluxProvider, private modal: ModalController) {
     this.ListFlux = Array<Flux>(0) ;
@@ -31,6 +35,10 @@ export class ListFluxPage {
     error => {
       console.log("Error while loading Flux List");
     } );
+
+    this.subscription = this.FluxP.getListFlux().subscribe( data => {
+      this.ListFlux = data;
+    });
 
   }
 
