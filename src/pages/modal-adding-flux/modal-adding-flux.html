@@ -40,7 +40,7 @@
                 <ion-item>
                     <ion-label>Catégorie</ion-label>
                     <ion-select [(ngModel)]="categoryFlux" name="categoryFlux">
-                        <ion-option *ngFor='let category of listCategories' [value]="categoryFlux">{{category.title}}</ion-option>
+                        <ion-option *ngFor='let category of listCategories' [value]="category">{{category.title}}</ion-option>
                     </ion-select>
                 </ion-item>
             </div>
