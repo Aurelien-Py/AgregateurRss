@@ -42,23 +42,7 @@ export class HomePage implements AfterViewInit, OnInit {
    * @memberof HomePage
    */
   ngAfterViewInit(){
-    this.category.add(new Category('Informatique','123456'));
-    this.category.add(new Category("Cuisine", "CACACA"))
-
-    let tempCatg = this.category.getByTitle('Informatique');
-    let tempCatgCuisine = this.category.getByTitle('Cuisine');
-
-    this.flux.add(new Flux('Journal du Hacker','https://www.journalduhacker.net/rss', tempCatg));
-    this.flux.add(new Flux('Korben','https://korben.info/feed', tempCatg));
-    this.flux.add(new Flux("Marmiton", "http://www.marmiton.org/rss/contenus-groupe.aspx", tempCatgCuisine));
-
-    this.loading = true;
-    
     this.doRefresh(null);
-
-    this.subscription = this.flux.getListFlux().subscribe( data => {
-      this.doRefresh(null);
-    });
   }
 
   /**

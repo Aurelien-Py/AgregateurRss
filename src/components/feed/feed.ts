@@ -19,5 +19,4 @@ export class FeedComponent {
   constructor() {
     console.log('Hello FeedComponent Component');
   }
-
-}
+  }

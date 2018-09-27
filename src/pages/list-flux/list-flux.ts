@@ -3,7 +3,7 @@
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Modal } from 'ionic-angular';
-
+import { HttpClient,} from '@angular/common/http';
 import { FluxProvider } from "../../providers/flux/flux";
 import { Flux } from "../../models/Flux/flux";
 
@@ -24,12 +24,13 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ListFluxPage {
 
-  ListFlux: Array<Flux> ;
-  subscription: Subscription;
+  public ListFlux: Array<Flux> ;
+  public subscription: Subscription;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public FluxP: FluxProvider, 
+              public http: HttpClient,
               private modal: ModalController, 
               ) {
     this.ListFlux = Array<Flux>(0) ;

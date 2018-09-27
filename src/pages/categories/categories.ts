@@ -3,6 +3,7 @@ import { CategoryProvider } from './../../providers/category/category';
 import { IonicPage, NavController, NavParams, ModalController, Modal  } from 'ionic-angular';
 import { Category } from '../../models/Category/category';
 import { Subscription } from 'rxjs/Subscription';
+import { HttpClient} from '@angular/common/http';
 
 
 /**
@@ -19,16 +20,10 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CategoriesPage {
 
-  categories: Array<Category>;
-  subscription: Subscription;
+  public categories: Array<Category>;
+  public subscription: Subscription;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modal: ModalController,  public categoryP: CategoryProvider) {
-    
-  }
-
-  
-ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriesPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient, private modal: ModalController,  public categoryP: CategoryProvider) {
     this.categories = Array<Category>(0);
     console.log(this.categories);
     this.categoryP.getAll().then(data => {
@@ -40,6 +35,11 @@ ionViewDidLoad() {
       this.categories = data;
       console.log(data);
     });
+  }
+
+  
+ionViewDidLoad() {
+    console.log('ionViewDidLoad CategoriesPage');
   }
 
 /**

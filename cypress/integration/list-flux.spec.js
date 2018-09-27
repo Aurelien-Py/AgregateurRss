@@ -19,7 +19,6 @@ describe('List-flux Page', () => {
         cy.get('.text-input').eq(1).click()
             .type('https://www.lemonde.fr/rss/une.xml');
         cy.get('.item-cover').click();       
-        cy.contains('Informatique').click();
         cy.get('.button-inner');
         cy.contains('OK').click();
         cy.contains('Créer').click();

@@ -31,6 +31,7 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles"></ion-refresher-content>
     </ion-refresher>
+    <div style="text-align: center; font-size: 20px; color: rgb(100,100,100); padding: 50px" *ngIf=" ListFlux.length < 1 ">Aucun flux disponible.<br><br> Veuillez ajouter un flux à l'aide de l'icone <b>+</b> situé en haut à droite de votre écran. </div>
     <ion-list>
         <div *ngFor='let flux of ListFlux'>
             <flux [flux]='flux'></flux>

@@ -26,6 +26,7 @@
 
 
 <ion-content>
+        <div style="text-align: center; font-size: 20px; color: rgb(100,100,100); padding: 50px" *ngIf=" categories.length < 1 ">Vous n'avez pas encore crée de catégorie<br><br> Ajouter une catégorie à l'aide de l'icone <b>+</b> situé en haut à droite de votre écran. </div>
     <ion-list>
         <div *ngFor='let category of categories'>
             <category [category]='category'></category>

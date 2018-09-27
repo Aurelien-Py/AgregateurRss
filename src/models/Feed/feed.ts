@@ -2,6 +2,9 @@ import { Flux } from '../Flux/flux';
 import { Md5 } from 'ts-md5';
 
 export class Feed{
+  remove(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
     public id: string;
     public title: string;
     public link: string;

@@ -18,6 +18,7 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingText="Pull to refresh"></ion-refresher-content>
     </ion-refresher>
+    <div style="text-align: center; font-size: 20px; color: rgb(100,100,100); padding: 50px" *ngIf=" feeds.length < 1 ">Aucun article disponible.<br><br> Veuillez ajouter un flux à l'aide de l'icone <b>+</b> situé en haut à droite de votre écran. </div>
     <div *ngIf="loading" class="loading-spinner" style="text-align: center;">
         <ion-spinner class="spinner spinner-ios spinner-crescent spinner-ios-crescent"></ion-spinner>
     </div>

@@ -13,9 +13,6 @@ describe('Category Page', () => {
         cy.wait(1000);
 
         cy.contains('Catégorie');
-        cy.contains('Informatique');
-        cy.contains('Cuisine');
-
         cy.get('.bar-button-clear').click();
         cy.wait(1000);
         cy.get('.text-input[type=text]')
