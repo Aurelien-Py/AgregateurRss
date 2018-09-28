@@ -27,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FluxProvider } from '../providers/flux/flux';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { CategoryProvider } from '../providers/category/category';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { CategoryProvider } from '../providers/category/category';
   providers: [
     StatusBar,
     SplashScreen,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FluxProvider,
     BookmarkProvider,

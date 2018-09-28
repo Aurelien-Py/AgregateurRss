@@ -28,6 +28,8 @@
     <br>
     <div *ngIf="feed.description.length > 0" margin-left margin-right text-justify>Description : <br> {{ feed.description | StripHtmlTagsPipe }}</div>
     <br>
+ 
+    <button ion-button (click)="facebookshare(feed)" block>Share</button>
 </ion-content>
 
 <ion-footer>

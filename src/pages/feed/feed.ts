@@ -4,6 +4,7 @@ import { Feed } from '../../models/Feed/feed';
 import { BookmarkProvider } from '../../providers/bookmark/bookmark';
 import { Bookmark } from '../../models/Bookmark/bookmark';
 import { ToastController } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing'; 
 /**
  * Generated class for the FeedPage page.
  *
@@ -23,8 +24,9 @@ export class FeedPage {
   public listImages = [ 'assets/imgs/Image0.jpg', 'assets/imgs/Image1.jpg','assets/imgs/Image2.jpg'];
   public image: string;
   public listBookmarks = Array<Bookmark>(0);
+  public message: string = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, public bookmark: BookmarkProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, public bookmark: BookmarkProvider, private socialSharing: SocialSharing  ) {
     this.feed = navParams.get('feed');
     this.randomImage(this.feed);
   }
@@ -43,6 +45,16 @@ export class FeedPage {
   openlink(feed: Feed){
     window.open(feed.link);
   }
+
+  facebookshare(feed: Feed){
+    this.socialSharing.shareViaFacebook(null, null, feed.link)
+    .then(() => {
+    
+    }).catch(() => {
+      (error) => {
+        console.log(error);
+    }});
+    }
 
   /**
    * Choisit une image aléatoire dans "assets/imgs" si le feed n'en communique pas
@@ -109,6 +121,8 @@ export class FeedPage {
   alreadyExist(){
     return this.bookmark.alreadyExist(this.feed);
   }
+
+ 
 }
 
 

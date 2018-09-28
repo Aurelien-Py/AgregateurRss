@@ -9,6 +9,8 @@ import { Flux } from '../../models/Flux/flux';
 import { FeedPage } from '../feed/feed';
 import { Category } from '../../models/Category/category';
 import { Subscription } from 'rxjs/Subscription';
+import { SocialSharing } from '@ionic-native/social-sharing'; 
+
 
 @Component({
   selector: 'page-home',
