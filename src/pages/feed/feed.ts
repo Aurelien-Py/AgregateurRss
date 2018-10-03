@@ -55,7 +55,26 @@ export class FeedPage {
         console.log(error);
     }});
     }
+    
+  twittershare(feed: Feed){
+    this.socialSharing.shareViaTwitter(null, null, feed.link)
+    .then(() => {
+      
+    }).catch(() => {
+      (error) => {
+        console.log(error);
+    }});
+    }
 
+  share(feed: Feed){
+    this.socialSharing.share(null, null, feed.link)
+    .then(() => {
+        
+    }).catch(() => {
+      (error) => {
+        console.log(error);
+    }});
+    }
   /**
    * Choisit une image aléatoire dans "assets/imgs" si le feed n'en communique pas
    * 

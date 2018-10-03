@@ -28,12 +28,30 @@
     <br>
     <div *ngIf="feed.description.length > 0" margin-left margin-right text-justify>Description : <br> {{ feed.description | StripHtmlTagsPipe }}</div>
     <br>
- 
-    <button ion-button (click)="facebookshare(feed)" block>Share</button>
 </ion-content>
 
 <ion-footer>
     <button ion-button (click)="openlink(feed)" block>  
-        link
-      </button>
+        Accéder à l'article 
+    </button>
+    <br>
+    <div text-center style="font-size: 20px">Partager le lien sur : </div>
+    <ion-buttons >
+        <button ion-button icon-only block color="facebook" (click)="facebookshare(feed)" >
+            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>Facebook
+        </button>
+        
+        <button ion-button icon-only block color="twitter" (click)="twittershare(feed)" >
+                <ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon>Twitter
+        </button>
+       
+        <button ion-button icon-only block  (click)="share(feed)" >
+            <ion-icon ios="logo-whatsapp" md="logo-whatsapp"></ion-icon> 
+            <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Autre
+            <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon> 
+            <ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon>
+        </button>
+    
+
+    </ion-buttons>
 </ion-footer>
