@@ -43,8 +43,15 @@ export class HomePage implements AfterViewInit, OnInit {
    *
    * @memberof HomePage
    */
+  
   ngAfterViewInit(){
     this.doRefresh(null);
+    this.loading = true;
+
+this.subscription = this.flux.getListFlux().subscribe( data => {
+      this.doRefresh(null);
+    });
+
   }
 
   /**

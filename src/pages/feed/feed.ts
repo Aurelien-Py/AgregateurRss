@@ -84,7 +84,7 @@ export class FeedPage {
 
   randomImage(feed: Feed) {
     let min = 0;
-    let max = 4;
+    let max = 3;
     this.nombre = Math.floor((Math.random() * (max - min))+ min);
     if(!feed.thumbnail){
     this.image = this.listImages[this.nombre];
