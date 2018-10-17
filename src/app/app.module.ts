@@ -28,6 +28,7 @@ import { FluxProvider } from '../providers/flux/flux';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { CategoryProvider } from '../providers/category/category';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { PropositionOfFluxPage } from '../pages/proposition-of-flux/proposition-of-flux';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     FluxComponent,
     //YE_EA
     BookmarksPage,
+    PropositionOfFluxPage,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     FluxComponent,
     //YE_EA
     BookmarksPage,
+    PropositionOfFluxPage,
   ],
   providers: [
     StatusBar,

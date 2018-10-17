@@ -10,6 +10,7 @@ import { ListFluxPage } from '../pages/list-flux/list-flux';
 // YE_EA
 
 import { BookmarksPage } from '../pages/bookmarks/bookmarks';
+import { PropositionOfFluxPage } from '../pages/proposition-of-flux/proposition-of-flux';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,11 +29,9 @@ export class MyApp {
     this.pages = [
       { title: 'Accueil', component: HomePage },
       { title: 'Catégories', component: CategoriesPage },
-      // YE_BA
       { title: 'Liste flux', component: ListFluxPage },
-      // YE_EA
-
-      { title: 'Favoris', component: BookmarksPage }
+      { title: 'Favoris', component: BookmarksPage },
+      { title: 'Proposition de Flux', component: PropositionOfFluxPage}
     ];
 
   }
