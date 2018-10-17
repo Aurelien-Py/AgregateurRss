@@ -1,10 +1,12 @@
 import { Category } from './../../models/Category/category';
 import { Component } from '@angular/core';
 import { Flux } from '../../models/Flux/flux';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,ModalController, Modal } from 'ionic-angular';
 import { FluxProvider } from '../../providers/flux/flux';
 import { CategoryProvider } from '../../providers/category/category';
 import { ToastController } from 'ionic-angular';
+import { Subscription } from 'rxjs/Subscription';
+
 
 /**
  * Generated class for the ModalAddingFluxPage page.
@@ -25,11 +27,13 @@ export class ModalAddingFluxPage {
   addressFlux: string;
   categoryFlux: Category;
   listCategories: Array<Category>;
+  subscription: Subscription;
 
-  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams, public flux: FluxProvider,public viewC: ViewController, public category: CategoryProvider) {
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController,private modal: ModalController, public navParams: NavParams, public flux: FluxProvider,public viewC: ViewController, public category: CategoryProvider) {
     this.nameFlux = null;
     this.addressFlux = null;
     this.categoryFlux = null;
+    this.listCategories = Array<Category>(0);
     this.category.getAll().then(
       data => {
         this.listCategories = data;
@@ -42,6 +46,13 @@ export class ModalAddingFluxPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalAddingFluxPage');
+  }
+  ngAfterViewInit(){
+    this.doRefresh(null);
+  }
+
+  ionViewDidEnter(){
+    this.doRefresh(null);
   }
 
   /**
@@ -63,15 +74,23 @@ controlFlux(){
   if (!(this.nameFlux == null || this.categoryFlux == null || this.addressFlux == null || !regexUrl.test(this.addressFlux))){
     this.addFlux();
   }
-  else{
+  else if( this.categoryFlux == null){
     let toast = this.toastCtrl.create({
-      message: 'Erreur dans la saisie des paramètres',
+      message: 'Vous devez créer et choisir une catégorie pour ajouter un flux',
       duration: 3000,
       position: 'top'
     });
     toast.present();
   }
-  
+  else if (this.nameFlux == null|| this.addressFlux == null || !regexUrl.test(this.addressFlux)) {
+    let toast = this.toastCtrl.create({
+      message: 'Erreur de saisis dans les paramètres',
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
 }
 
   /**
@@ -100,5 +119,27 @@ controlFlux(){
       toast.present();
     }
   }
+
+  openModal(){
+    const modalAddFlux : Modal = this.modal.create('ModalAddingCategoryPage');
+    modalAddFlux.present();
+  }
+
+ doRefresh(refresher){
+  this.listCategories = Array<Category>(0);
+  this.category.getAll().then(
+    data => {
+    console.log(data);
+    this.listCategories = data;
+    if(refresher !== null){
+      refresher.complete();
+    }
+  },
+  error=>{
+    
+  }
+  )
+ }
+
 
 }

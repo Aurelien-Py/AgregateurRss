@@ -5,11 +5,9 @@ import { NavController, ModalController, Modal } from 'ionic-angular';
 import { FluxProvider } from '../../providers/flux/flux';
 import 'rxjs/add/operator/map';
 import { Feed } from '../../models/Feed/feed';
-import { Flux } from '../../models/Flux/flux';
 import { FeedPage } from '../feed/feed';
-import { Category } from '../../models/Category/category';
 import { Subscription } from 'rxjs/Subscription';
-import { SocialSharing } from '@ionic-native/social-sharing'; 
+import { Category } from '../../models/Category/category';
 
 
 @Component({
@@ -21,12 +19,23 @@ export class HomePage implements AfterViewInit, OnInit {
   feeds: Array<Feed>;
   loading: boolean;
   subscription: Subscription;
-
+  categoryFlux: Category;
+  listCategories: Array<Category>;
+  
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider, private modal: ModalController, public category: CategoryProvider) {
     this.feeds = Array<Feed>(0);
     console.log(this.feeds);
-  }
 
+    this.categoryFlux = null;
+    this.category.getAll().then(
+      data => {
+        this.listCategories = data;
+      },
+      error => {
+        console.log("Error while loading categories");
+      }
+    )
+  }
   /**
    *Fonction permettant d'accéder à la page du feed sélectionné
    *
@@ -125,6 +134,4 @@ this.subscription = this.flux.getListFlux().subscribe( data => {
     const modalAddFlux : Modal = this.modal.create('ModalAddingFluxPage');
     modalAddFlux.present();
   }
-
-
 }

@@ -21,8 +21,10 @@
 
 <ion-content padding>
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to refresh"></ion-refresher-content>    
+    </ion-refresher>
         <ion-list>
-
             <div padding>
                 <ion-item>
                     <ion-label floating>Nom</ion-label>
@@ -35,21 +37,28 @@
                     <ion-input [(ngModel)]="addressFlux" type="text" placeholder="http://" name="addressFlux"></ion-input>
                 </ion-item>
             </div>
+            
+            <div text-center *ngIf=" listCategories.length < 1; else categorieCree" >
+                    <button ion-button round outline color="autre" (click)="openModal()">Créer une catégorie</button>          
+            </div>
 
+             <ng-template  #categorieCree >
             <div padding>
                 <ion-item>
                     <ion-label>Catégorie</ion-label>
-                    <ion-select [(ngModel)]="categoryFlux" name="categoryFlux">
-                        <ion-option *ngFor='let category of listCategories' [value]="category">{{category.title}}</ion-option>
-                    </ion-select>
-                </ion-item>
+                        <ion-select [(ngModel)]="categoryFlux" name="categoryFlux">
+                            <ion-option *ngFor='let category of listCategories' [value]="category">{{category.title}}</ion-option>
+                        </ion-select>
+            </ion-item>
             </div>
-
-            <div padding>
+            </ng-template>
+           
+        
+       
+       
+        <div padding>
                 <button ion-button block (click)="controlFlux()" >Créer</button>
             </div>
-
         </ion-list>
-
 
 </ion-content>
