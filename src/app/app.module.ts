@@ -10,15 +10,15 @@ import { FeedComponent } from '../components/feed/feed';
 import { CategoryComponent } from './../components/category/category';
 
 import { FluxComponent } from './../components/flux/flux';
+import { SiteComponent } from '../components/site/site';
 
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FeedPage } from '../pages/feed/feed';
 import { CategoriesPage } from '../pages/categories/categories';
-// YE_BA
+
 import { ListFluxPage } from '../pages/list-flux/list-flux';
-// YE_EA
 
 import {BookmarksPage} from '../pages/bookmarks/bookmarks';
 
@@ -29,6 +29,7 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { CategoryProvider } from '../providers/category/category';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { PropositionOfFluxPage } from '../pages/proposition-of-flux/proposition-of-flux';
+import { SiteProvider } from '../providers/site/site';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,11 @@ import { PropositionOfFluxPage } from '../pages/proposition-of-flux/proposition-
     CategoryComponent,
     FeedPage,
     CategoriesPage,
-    //YE_BA
     ListFluxPage,
     FluxComponent,
-    //YE_EA
     BookmarksPage,
     PropositionOfFluxPage,
+    SiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,10 +60,8 @@ import { PropositionOfFluxPage } from '../pages/proposition-of-flux/proposition-
     CategoryComponent,
     FeedPage,
     CategoriesPage,
-    //YE_BA
     ListFluxPage,
     FluxComponent,
-    //YE_EA
     BookmarksPage,
     PropositionOfFluxPage,
   ],
@@ -75,6 +73,7 @@ import { PropositionOfFluxPage } from '../pages/proposition-of-flux/proposition-
     FluxProvider,
     BookmarkProvider,
     CategoryProvider,
+    SiteProvider,
   ]
 })
 export class AppModule {}

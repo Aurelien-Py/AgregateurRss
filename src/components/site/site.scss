@@ -1,0 +1,26 @@
+site{
+    .box{
+        position: relative;
+        margin: auto;
+        height: 100%;
+        min-height : 120px-20px ;
+    }
+
+    .box-shadow {
+        margin-bottom: 10px;
+        min-height : 50px ;
+        background : rgb(255, 255, 255) ;
+        box-shadow : 0 2px 5px 0 rgba(0,0,0,.26);
+        border-left: 8px solid #c22929;
+        position: relative;
+        display: block;
+        
+        
+        
+
+        .title{
+            margin: auto;
+            padding: 20px;
+        }
+    }
+}

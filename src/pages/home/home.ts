@@ -25,7 +25,6 @@ export class HomePage implements AfterViewInit, OnInit {
   constructor(public navCtrl: NavController, public http: HttpClient, public flux: FluxProvider, private modal: ModalController, public category: CategoryProvider) {
     this.feeds = Array<Feed>(0);
     console.log(this.feeds);
-
     this.categoryFlux = null;
     this.category.getAll().then(
       data => {
@@ -44,7 +43,7 @@ export class HomePage implements AfterViewInit, OnInit {
    */
   goToFeedPage(feed: Feed){
     this.navCtrl.push(FeedPage, {'feed' : feed});
-  }
+  }    
 
   /**
    *Fonction créant des catégories et des flux au lancement de l'application 
@@ -60,7 +59,6 @@ export class HomePage implements AfterViewInit, OnInit {
 this.subscription = this.flux.getListFlux().subscribe( data => {
       this.doRefresh(null);
     });
-
   }
 
   /**

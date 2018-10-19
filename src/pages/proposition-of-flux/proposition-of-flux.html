@@ -19,8 +19,8 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let site of siteP.sites">
-    {{ site.sitename}}
-    {{ site.url }}
+        <site [site]='site'></site>
+
   </ion-item>
 </ion-list>
 
