@@ -49,7 +49,9 @@ modifyCategory(){
   let toast = this.toastCtrl.create({
     message: 'Catégorie modifiée',
     duration: 3000,
-    position: 'top'
+    position: 'top',
+    showCloseButton: true,
+    closeButtonText: 'Ok'
   });
   toast.present();
 }

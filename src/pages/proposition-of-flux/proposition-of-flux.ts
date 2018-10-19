@@ -2,12 +2,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoryProvider } from './../../providers/category/category';
 import { HttpClient } from '@angular/common/http';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { FluxProvider } from '../../providers/flux/flux';
 import 'rxjs/add/operator/map';
-import { Feed } from '../../models/Feed/feed';
-import { FeedPage } from '../feed/feed';
-import { Subscription } from 'rxjs/Subscription';
-import { Category } from '../../models/Category/category';
+import { SiteProvider } from '../../providers/site/site';
+import { Site } from '../../models/Site/site';
+
 /**
  * Generated class for the PropositionOfFluxPage page.
  *
@@ -22,11 +20,11 @@ import { Category } from '../../models/Category/category';
 })
 export class PropositionOfFluxPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public siteP: SiteProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PropositionOfFluxPage');
+    this.siteP.load();
   }
 
 }

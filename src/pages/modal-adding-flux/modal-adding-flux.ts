@@ -78,7 +78,9 @@ controlFlux(){
     let toast = this.toastCtrl.create({
       message: 'Vous devez créer et choisir une catégorie pour ajouter un flux',
       duration: 3000,
-      position: 'top'
+      position: 'top',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
     });
     toast.present();
   }
@@ -86,7 +88,9 @@ controlFlux(){
     let toast = this.toastCtrl.create({
       message: 'Erreur de saisis dans les paramètres',
       duration: 3000,
-      position: 'top'
+      position: 'top',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
     });
     toast.present();
   }

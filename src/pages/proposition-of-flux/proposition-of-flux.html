@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>Proposition de Flux</ion-title>
   </ion-navbar>
 
@@ -14,5 +17,11 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let site of siteP.sites">
+    {{ site.sitename}}
+    {{ site.url }}
+  </ion-item>
+</ion-list>
 
 </ion-content>
